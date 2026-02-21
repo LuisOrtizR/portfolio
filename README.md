@@ -1,48 +1,275 @@
-# portfolio
+<div align="center">
 
-This template should help get you started developing with Vue 3 in Vite.
+# 🚀 Luis Ortiz — Developer Portfolio
 
-## Recommended IDE Setup
+### Modern Web Architecture · Clean Code · Scalable Systems
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+<br/>
 
-## Recommended Browser Setup
+[![Vue](https://img.shields.io/badge/Vue-3.x-42b883?style=for-the-badge&logo=vue.js&logoColor=white)]()
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?style=for-the-badge&logo=typescript&logoColor=white)]()
+[![Vite](https://img.shields.io/badge/Vite-Latest-646cff?style=for-the-badge&logo=vite&logoColor=white)]()
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38bdf8?style=for-the-badge&logo=tailwind-css&logoColor=white)]()
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+<br/>
 
-## Type Support for `.vue` Imports in TS
+![GitHub last commit](https://img.shields.io/github/last-commit/LuisOrtizR/portfolio?style=flat-square&color=42b883)
+![GitHub repo size](https://img.shields.io/github/repo-size/LuisOrtizR/portfolio?style=flat-square&color=646cff)
+![License](https://img.shields.io/badge/license-MIT-38bdf8?style=flat-square)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+</div>
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## ✨ About This Project
 
-## Project Setup
+This is not just a portfolio.
 
-```sh
+It is a **strategically designed, scalable front-end architecture** built with modern technologies and clean engineering principles — crafted to reflect professional standards, technical clarity, and long-term maintainability.
+
+> *"Build a high-performance digital presence that represents your engineering mindset as much as your projects do."*
+
+---
+
+## 🎯 Purpose
+
+- 📁 Showcase professional projects with real context
+- ⚙️ Present technical stack and engineering capabilities
+- 🏗️ Demonstrate architectural thinking and scalability awareness
+- 🤖 Serve as a foundation for future integrations (AI, APIs, automation)
+
+---
+
+## 🧠 Architecture Philosophy
+
+This project is built following professional front-end engineering principles:
+
+- ✅ **Modular component structure** — every piece is isolated and reusable
+- ✅ **Separation of concerns** — views, logic, and styles are cleanly decoupled
+- ✅ **Strong typing with TypeScript** — fewer bugs, better developer experience
+- ✅ **Scalable folder architecture** — built to grow without becoming spaghetti
+- ✅ **Performance-first build system** — powered by Vite for instant feedback
+
+### Application Flow
+
+```
+main.ts
+  └── App.vue
+        └── Router (index.ts)
+              ├── HomeView.vue
+              │     └── AppLayout.vue
+              │           ├── Navbar.vue
+              │           ├── HeroSection.vue
+              │           ├── AboutSection.vue
+              │           ├── SkillsSection.vue
+              │           ├── ProjectsSection.vue
+              │           ├── ContactSection.vue
+              │           └── Footer.vue
+              └── NotFoundView.vue  (404)
+```
+
+Each section is **fully modular and independently maintainable** — no coupling, no side effects.
+
+---
+
+## 🧱 Tech Stack
+
+| Technology | Version | Purpose |
+|---|---|---|
+| Vue 3 (Composition API) | 3.x | Reactive UI Architecture |
+| TypeScript | 5.x | Type Safety & Maintainability |
+| Vite | Latest | Lightning-fast bundling & HMR |
+| TailwindCSS | 3.x | Utility-first styling system |
+| Vue Router | 4.x | SPA Navigation |
+| ESLint + oxlint | Latest | Code Quality & Consistency |
+
+---
+
+## 📂 Project Structure
+
+```
+portfolio/
+├── public/                          # Static public assets
+├── src/
+│   ├── assets/
+│   │   └── main.css                 # Global styles
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── AppLayout.vue        # Main page wrapper
+│   │   │   ├── Navbar.vue           # Top navigation bar
+│   │   │   └── Footer.vue           # Footer component
+│   │   ├── sections/
+│   │   │   ├── HeroSection.vue      # Landing / intro section
+│   │   │   ├── AboutSection.vue     # About me section
+│   │   │   ├── SkillsSection.vue    # Tech skills section
+│   │   │   ├── ProjectsSection.vue  # Projects showcase
+│   │   │   └── ContactSection.vue   # Contact form / links
+│   │   └── ui/                      # Reusable UI primitives
+│   ├── config/
+│   │   └── site.config.ts           # App-wide configuration
+│   ├── router/
+│   │   └── index.ts                 # Route definitions
+│   ├── stores/                      # Pinia state management (ready to scale)
+│   ├── types/
+│   │   └── project.ts               # TypeScript interfaces & types
+│   ├── views/
+│   │   ├── HomeView.vue             # Main page view
+│   │   └── NotFoundView.vue         # 404 page
+│   ├── App.vue                      # Root component
+│   └── main.ts                      # Application entry point
+├── env.d.ts                         # Environment type declarations
+├── index.html                       # HTML entry point
+├── vite.config.ts                   # Vite configuration
+├── tsconfig.json                    # TypeScript base config
+├── tsconfig.app.json                # App-specific TS config
+├── tsconfig.node.json               # Node-specific TS config
+├── eslint.config.ts                 # ESLint rules
+├── .oxlintrc.json                   # oxlint configuration
+├── postcss.config.js                # PostCSS / Tailwind pipeline
+└── package.json                     # Dependencies & scripts
+```
+
+> The structure is intentionally designed to scale into API integrations, authentication systems, headless CMS, AI-driven features, and full-stack expansion without refactoring.
+
+---
+
+## ⚡ Performance Highlights
+
+| Feature | Detail |
+|---|---|
+| ⚡ Hot Module Replacement | Instant feedback during development |
+| 📦 Optimized production builds | Tree-shaking + code splitting |
+| 🌍 Static deployment ready | Works on any CDN out of the box |
+| 🧹 Minimal dependency footprint | Only what's necessary, nothing bloated |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Make sure you have installed:
+
+- **Node.js** `>= 18.x`
+- **npm** `>= 9.x`
+
+---
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/LuisOrtizR/portfolio.git
+cd portfolio
+```
+
+### 2️⃣ Install dependencies
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 3️⃣ Start development server
 
-```sh
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+The app will be available at `http://localhost:5173`
 
-```sh
+---
+
+## 🏗️ Production Build
+
+```bash
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+Output will be generated inside the `dist/` folder, ready for deployment.
 
-```sh
+---
+
+## 🔎 Type Checking
+
+```bash
+npm run type-check
+```
+
+---
+
+## 🧹 Linting
+
+```bash
 npm run lint
 ```
+
+---
+
+## 🌍 Deployment
+
+Recommended platforms for static hosting:
+
+| Platform | Speed | Free Tier |
+|---|---|---|
+| **Vercel** | ⚡ Instant | ✅ Yes |
+| **Netlify** | ⚡ Fast | ✅ Yes |
+| **Cloudflare Pages** | 🌍 Global CDN | ✅ Yes |
+
+All platforms support automatic deployments from GitHub on every push to `main`.
+
+---
+
+## 📈 Roadmap
+
+- [ ] Dynamic project loading from external API
+- [ ] AI-powered recruiter assistant chatbot
+- [ ] Interactive project live demos
+- [ ] Admin panel for content management
+- [ ] Full-stack expansion with backend integration
+- [ ] Dark / Light mode toggle
+- [ ] Multilingual support (EN / ES)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome. If you find a bug or want to suggest an improvement:
+
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m 'Add: your feature description'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — feel free to use it as inspiration for your own portfolio.
+
+---
+
+## 🧑‍💻 Author
+
+<div align="center">
+
+**Luis Ortiz**
+Full Stack Developer
+
+*Focused on scalable architecture, clean engineering, and intelligent systems.*
+
+[![GitHub](https://github.com/LuisOrtizR?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LuisOrtizR)
+[![LinkedIn](https://www.linkedin.com/in/luis-romero-dev/?style=for-the-badge&logo=linkedin&logoColor=white)]()
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-42b883?style=for-the-badge&logo=vue.js&logoColor=white)]()
+
+
+</div>
+
+---
+
+<div align="center">
+
+### Built with precision. Designed for impact.
+
+*— Luis Ortiz*
+
+</div>

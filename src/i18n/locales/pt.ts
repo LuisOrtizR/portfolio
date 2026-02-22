@@ -50,6 +50,20 @@ export default {
   skills: {
     tag: 'Stack Tecnológico',
     heading: 'Ferramentas com as quais construo',
+    categories: {
+      frontend: 'Frontend',
+      backend: 'Backend',
+      devops: 'DevOps',
+      tools: 'Ferramentas',
+    },
+    badges: [
+      'Composition API',
+      'Arquitetura Limpa',
+      'Mobile First',
+      'TypeScript Estrito',
+      'Foco em Desempenho',
+      'Sistemas Escaláveis',
+    ],
   },
   projects: {
     tag: 'Trabalho',
@@ -59,17 +73,17 @@ export default {
     code: 'Código',
     liveDemo: 'Demo ao vivo',
     items: {
+      backendRbac: {
+        title: 'Backend Auth RBAC API',
+        description: 'API REST profissional com autenticação JWT e sistema completo de controle de acesso baseado em papéis (RBAC). Arquitetura modular com Express, validação Zod, rate limiting e tratamento centralizado de erros — pronto para produção.',
+      },
+      frontendRbac: {
+        title: 'Sistema de Gestão de Acessos',
+        description: 'Dashboard administrativo completo para gerenciar usuários, papéis e solicitações de acesso. Construído com Vue 3, Pinia e Vue Router com rotas protegidas e rastreamento de status em tempo real.',
+      },
       portfolio: {
         title: 'Portfolio de Desenvolvedor',
-        description: 'SPA moderna construída com Vue 3, TypeScript e TailwindCSS. Arquitetura escalável pronta para integrações com IA.',
-      },
-      api: {
-        title: 'Plataforma REST API',
-        description: 'API REST escalável com autenticação, limitação de taxa e documentação automática.',
-      },
-      tasks: {
-        title: 'App de Gestão de Tarefas',
-        description: 'Ferramenta de produtividade full-stack com atualizações em tempo real e recursos de colaboração em equipe.',
+        description: 'SPA moderna com suporte multilíngue (EN/ES/PT), construída com Vue 3, TypeScript e TailwindCSS. Arquitetura escalável com vue-i18n e detecção automática de idioma.',
       },
     },
   },

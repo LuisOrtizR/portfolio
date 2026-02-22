@@ -1,67 +1,68 @@
 <template>
-  <section id="about" class="section-padding max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
+  <section id="about" class="section-padding w-full overflow-x-hidden">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
 
-      <div>
-        <p class="text-sky-400 text-sm font-medium tracking-widest uppercase mb-4">{{ t('about.tag') }}</p>
-        <h2 class="font-['Syne'] text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-          {{ t('about.heading1') }}<br/>
-          {{ t('about.heading2') }}
-        </h2>
-        <div class="space-y-4 text-slate-400 leading-relaxed">
-          <p>{{ t('about.p1') }}</p>
-          <p>{{ t('about.p2') }}</p>
-        </div>
-
-        <div class="grid grid-cols-2 gap-4 mt-10">
-          <div
-            v-for="value in values"
-            :key="value.key"
-            class="p-4 rounded-xl bg-surface border border-border"
-          >
-            <span class="text-xl mb-2 block">{{ value.icon }}</span>
-            <p class="text-white text-sm font-medium">{{ t(`about.values.${value.key}.label`) }}</p>
-            <p class="text-slate-500 text-xs mt-0.5">{{ t(`about.values.${value.key}.desc`) }}</p>
+        <div class="min-w-0">
+          <p class="text-sky-400 text-sm font-medium tracking-widest uppercase mb-4">{{ t('about.tag') }}</p>
+          <h2 class="font-['Syne'] text-4xl md:text-5xl font-bold text-white leading-tight mb-6 wrap-break-word">
+            {{ t('about.heading1') }}<br/>
+            {{ t('about.heading2') }}
+          </h2>
+          <div class="space-y-4 text-slate-400 leading-relaxed">
+            <p class="wrap-break-word">{{ t('about.p1') }}</p>
+            <p class="wrap-break-word">{{ t('about.p2') }}</p>
           </div>
-        </div>
-      </div>
 
-      <div class="relative">
-        <div class="absolute -inset-4 bg-sky-500/5 rounded-3xl blur-xl" />
-        <div class="relative bg-surface border border-border rounded-2xl p-8 space-y-6">
-
-          <div class="flex items-center gap-3 pb-6 border-b border-border">
+          <div class="grid grid-cols-2 gap-4 mt-10">
             <div
-              class="w-12 h-12 min-w-12 min-h-12 max-w-12 max-h-12 rounded-full overflow-hidden shrink-0 ring-2 ring-sky-400/30 cursor-pointer hover:ring-sky-400 transition-all duration-200"
-              @click="lightboxOpen = true"
+              v-for="value in values"
+              :key="value.key"
+              class="p-4 rounded-xl bg-surface border border-border min-w-0"
             >
-              <img
-                src="https://i.ibb.co/JhnHg7C/Profile.png"
-                alt="Luis Ortiz"
-                class="w-full h-full object-cover object-top"
-                referrerpolicy="no-referrer"
-                draggable="false"
-              />
+              <span class="text-xl mb-2 block">{{ value.icon }}</span>
+              <p class="text-white text-sm font-medium truncate">{{ t(`about.values.${value.key}.label`) }}</p>
+              <p class="text-slate-500 text-xs mt-0.5 truncate">{{ t(`about.values.${value.key}.desc`) }}</p>
             </div>
-            <div>
-              <p class="text-white font-semibold">Luis Ortiz</p>
-              <p class="text-slate-500 text-sm">{{ t('about.profile.role') }}</p>
-            </div>
-            <span class="ml-auto text-xs px-2 py-1 rounded-full bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 whitespace-nowrap">
-              {{ t('about.profile.openToWork') }}
-            </span>
-          </div>
-
-          <div v-for="item in profileItems" :key="item.labelKey" class="flex items-center justify-between text-sm">
-            <span class="text-slate-500">{{ t(item.labelKey) }}</span>
-            <span class="text-slate-300">{{ t(item.valueKey) }}</span>
           </div>
         </div>
-      </div>
 
+        <div class="relative min-w-0">
+          <div class="absolute -inset-4 bg-sky-500/5 rounded-3xl blur-xl" />
+          <div class="relative bg-surface border border-border rounded-2xl p-8 space-y-6 overflow-hidden">
+
+            <div class="flex items-center gap-3 pb-6 border-b border-border min-w-0">
+              <div
+                class="w-12 h-12 min-w-12 min-h-12 max-w-12 max-h-12 rounded-full overflow-hidden shrink-0 ring-2 ring-sky-400/30 cursor-pointer hover:ring-sky-400 transition-all duration-200"
+                @click="lightboxOpen = true"
+              >
+                <img
+                  src="https://i.ibb.co/JhnHg7C/Profile.png"
+                  alt="Luis Ortiz"
+                  class="w-full h-full object-cover object-top"
+                  referrerpolicy="no-referrer"
+                  draggable="false"
+                />
+              </div>
+              <div class="min-w-0 flex-1">
+                <p class="text-white font-semibold truncate">Luis Ortiz</p>
+                <p class="text-slate-500 text-sm truncate">{{ t('about.profile.role') }}</p>
+              </div>
+              <span class="shrink-0 text-xs px-2 py-1 rounded-full bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 whitespace-nowrap">
+                {{ t('about.profile.openToWork') }}
+              </span>
+            </div>
+
+            <div v-for="item in profileItems" :key="item.labelKey" class="flex items-center justify-between text-sm gap-4 min-w-0">
+              <span class="text-slate-500 shrink-0">{{ t(item.labelKey) }}</span>
+              <span class="text-slate-300 text-right truncate">{{ t(item.valueKey) }}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <!-- Lightbox -->
     <Teleport to="body">
       <Transition name="fade">
         <div

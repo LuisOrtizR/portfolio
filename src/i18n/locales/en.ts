@@ -50,6 +50,20 @@ export default {
   skills: {
     tag: 'Tech Stack',
     heading: 'Tools I build with',
+    categories: {
+      frontend: 'Frontend',
+      backend: 'Backend',
+      devops: 'DevOps',
+      tools: 'Tools',
+    },
+    badges: [
+      'Composition API',
+      'Clean Architecture',
+      'Mobile First',
+      'TypeScript Strict',
+      'Performance Focused',
+      'Scalable Systems',
+    ],
   },
   projects: {
     tag: 'Work',
@@ -59,17 +73,17 @@ export default {
     code: 'Code',
     liveDemo: 'Live demo',
     items: {
+      backendRbac: {
+        title: 'Backend Auth RBAC API',
+        description: 'Professional REST API with JWT authentication and a full Role-Based Access Control system. Modular architecture with Express, Zod validation, rate limiting, and centralized error handling — production-ready.',
+      },
+      frontendRbac: {
+        title: 'Access Management System',
+        description: 'Full-featured admin dashboard for managing users, roles, and access requests. Built with Vue 3, Pinia, and Vue Router with protected routes and real-time status tracking.',
+      },
       portfolio: {
         title: 'Developer Portfolio',
-        description: 'Modern SPA built with Vue 3, TypeScript and TailwindCSS. Scalable architecture ready for AI integrations.',
-      },
-      api: {
-        title: 'REST API Platform',
-        description: 'Scalable REST API with authentication, rate limiting, and automatic documentation.',
-      },
-      tasks: {
-        title: 'Task Management App',
-        description: 'Full-stack productivity tool with real-time updates and team collaboration features.',
+        description: 'Modern SPA with multilingual support (EN/ES/PT), built with Vue 3, TypeScript and TailwindCSS. Scalable architecture with vue-i18n and auto locale detection.',
       },
     },
   },

@@ -3,9 +3,9 @@
     <div class="max-w-6xl mx-auto">
 
       <div class="text-center mb-16">
-        <p class="text-sky-400 text-sm font-medium tracking-widest uppercase mb-4">Tech Stack</p>
+        <p class="text-sky-400 text-sm font-medium tracking-widest uppercase mb-4">{{ t('skills.tag') }}</p>
         <h2 class="font-['Syne'] text-4xl md:text-5xl font-bold text-white">
-          Tools I build with
+          {{ t('skills.heading') }}
         </h2>
       </div>
 
@@ -47,7 +47,11 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 defineOptions({ name: 'SkillsSection' })
+
+const { t } = useI18n()
 
 const skills = [
   {

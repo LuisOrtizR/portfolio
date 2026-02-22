@@ -12,21 +12,21 @@
       <!-- Badge -->
       <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 text-xs font-medium mb-8 fade-in">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-        Available for new projects
+        {{ t('hero.badge') }}
       </div>
 
       <!-- Heading -->
       <h1 class="font-['Syne'] text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-6 fade-in" style="animation-delay: 0.1s">
-        <span class="text-white">Luis Ortiz</span>
+        <span class="text-white">{{ t('hero.title1') }}</span>
         <br/>
-        <span class="text-slate-500">Full Stack</span>
+        <span class="text-slate-500">{{ t('hero.title2') }}</span>
         <br/>
-        <span class="text-sky-400">Developer.</span>
+        <span class="text-sky-400">{{ t('hero.title3') }}</span>
       </h1>
 
       <!-- Subtitle -->
       <p class="text-slate-400 text-lg md:text-xl max-w-xl leading-relaxed mb-10 fade-in" style="animation-delay: 0.2s">
-        Building scalable, modern web systems with clean architecture and sharp attention to detail.
+        {{ t('hero.subtitle') }}
       </p>
 
       <!-- CTAs -->
@@ -35,21 +35,29 @@
           href="#projects"
           class="px-6 py-3 rounded-xl bg-sky-400 text-black font-semibold text-sm hover:bg-sky-300 transition-colors duration-200"
         >
-          View Projects
+          {{ t('hero.viewProjects') }}
         </a>
         <a
           href="#contact"
           class="px-6 py-3 rounded-xl border border-border text-slate-300 font-medium text-sm hover:border-sky-400/50 hover:text-white transition-all duration-200"
         >
-          Let's talk →
+          {{ t('hero.letsTalk') }}
         </a>
       </div>
 
       <!-- Stats -->
       <div class="flex flex-wrap gap-10 mt-20 fade-in" style="animation-delay: 0.4s">
-        <div v-for="stat in stats" :key="stat.label">
-          <p class="font-['Syne'] text-3xl font-bold text-white">{{ stat.value }}</p>
-          <p class="text-slate-500 text-sm mt-0.5">{{ stat.label }}</p>
+        <div>
+          <p class="font-['Syne'] text-3xl font-bold text-white">1+</p>
+          <p class="text-slate-500 text-sm mt-0.5">{{ t('hero.stats.experience') }}</p>
+        </div>
+        <div>
+          <p class="font-['Syne'] text-3xl font-bold text-white">2+</p>
+          <p class="text-slate-500 text-sm mt-0.5">{{ t('hero.stats.projects') }}</p>
+        </div>
+        <div>
+          <p class="font-['Syne'] text-3xl font-bold text-white">100%</p>
+          <p class="text-slate-500 text-sm mt-0.5">{{ t('hero.stats.commitment') }}</p>
         </div>
       </div>
     </div>
@@ -57,11 +65,9 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 defineOptions({ name: 'HeroSection' })
 
-const stats = [
-  { value: '3+', label: 'Years of experience' },
-  { value: '15+', label: 'Projects delivered' },
-  { value: '100%', label: 'Commitment' },
-]
+const { t } = useI18n()
 </script>

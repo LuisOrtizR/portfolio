@@ -10,5 +10,5 @@
 
 <script setup lang="ts">
 import Navbar from './Navbar.vue'
-import AppFooter from './AppFooter.vue'
+import AppFooter from './Appfooter.vue'
 </script>

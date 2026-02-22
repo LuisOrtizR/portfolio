@@ -1,0 +1,87 @@
+export default {
+  nav: {
+    about: 'Sobre mí',
+    skills: 'Habilidades',
+    projects: 'Proyectos',
+    contact: 'Contacto',
+    hireMe: 'Contrátame',
+  },
+  hero: {
+    badge: 'Disponible para nuevos proyectos',
+    title1: 'Luis Ortiz',
+    title2: 'Full Stack',
+    title3: 'Developer.',
+    subtitle: 'Construyendo sistemas web modernos y escalables con arquitectura limpia y atención al detalle.',
+    viewProjects: 'Ver Proyectos',
+    letsTalk: 'Hablemos →',
+    stats: {
+      experience: 'Años de experiencia',
+      projects: 'Proyectos entregados',
+      commitment: 'Compromiso',
+    },
+  },
+  about: {
+    tag: 'Sobre mí',
+    heading1: 'Ingeniero por oficio,',
+    heading2: 'constructor por pasión.',
+    p1: 'Soy un Desarrollador Full Stack enfocado en construir sistemas web modernos y escalables. Me importa profundamente la arquitectura limpia, el código mantenible y entregar valor real a través de la tecnología.',
+    p2: 'Trabajo con el ecosistema Vue en el frontend y Node.js en el backend. Abordo cada proyecto con una mentalidad arquitectónica — pensando no solo en lo que funciona hoy, sino en lo que escala mañana.',
+    values: {
+      performance: { label: 'Rendimiento', desc: 'Enfoque en velocidad' },
+      architecture: { label: 'Arquitectura', desc: 'Escalable por diseño' },
+      precision: { label: 'Precisión', desc: 'Código orientado al detalle' },
+      delivery: { label: 'Entrega', desc: 'Lanzar lo que importa' },
+    },
+    profile: {
+      location: 'Ubicación',
+      locationValue: 'Colombia - Soacha',
+      experience: 'Experiencia',
+      experienceValue: '1+ años',
+      focus: 'Enfoque',
+      focusValue: 'Vue · Node.js · TS',
+      english: 'Inglés',
+      englishValue: 'Intermedio',
+      status: 'Estado',
+      statusValue: '✅ Disponible',
+      role: 'Desarrollador Full Stack',
+      openToWork: 'Disponible para trabajar',
+    },
+  },
+  skills: {
+    tag: 'Stack Tecnológico',
+    heading: 'Herramientas con las que construyo',
+  },
+  projects: {
+    tag: 'Trabajo',
+    heading: 'Proyectos Destacados',
+    allOnGithub: 'Todos los proyectos en GitHub',
+    featured: 'Destacado',
+    code: 'Código',
+    liveDemo: 'Demo en vivo',
+    items: {
+      portfolio: {
+        title: 'Portfolio de Desarrollador',
+        description: 'SPA moderna construida con Vue 3, TypeScript y TailwindCSS. Arquitectura escalable lista para integraciones con IA.',
+      },
+      api: {
+        title: 'Plataforma REST API',
+        description: 'API REST escalable con autenticación, limitación de tasa y documentación automática.',
+      },
+      tasks: {
+        title: 'App de Gestión de Tareas',
+        description: 'Herramienta de productividad full-stack con actualizaciones en tiempo real y funciones de colaboración en equipo.',
+      },
+    },
+  },
+  contact: {
+    tag: 'Contacto',
+    heading1: 'Construyamos algo',
+    heading2: 'juntos.',
+    subtitle: 'Estoy abierto a proyectos freelance, oportunidades de tiempo completo y colaboraciones interesantes.',
+    orReachMe: 'o encuéntrame en',
+  },
+  footer: {
+    builtWith: 'Construido con Vue 3 + TypeScript + TailwindCSS',
+    available: 'Disponible para trabajar',
+  },
+}

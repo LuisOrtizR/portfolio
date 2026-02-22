@@ -2,8 +2,8 @@ export const siteConfig = {
   name: 'Luis Ortiz',
   title: 'Full Stack Developer',
   subtitle: 'Building scalable systems with modern web technologies.',
-  email: 'luis@email.com',
-  location: 'México',
+  email: 'luisangel930115@gmail.com',
+  location: 'Colombia Co',
   available: true,
 
   social: {

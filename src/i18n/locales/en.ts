@@ -1,0 +1,87 @@
+export default {
+  nav: {
+    about: 'About',
+    skills: 'Skills',
+    projects: 'Projects',
+    contact: 'Contact',
+    hireMe: 'Hire me',
+  },
+  hero: {
+    badge: 'Available for new projects',
+    title1: 'Luis Ortiz',
+    title2: 'Full Stack',
+    title3: 'Developer.',
+    subtitle: 'Building scalable, modern web systems with clean architecture and sharp attention to detail.',
+    viewProjects: 'View Projects',
+    letsTalk: "Let's talk →",
+    stats: {
+      experience: 'Years of experience',
+      projects: 'Projects delivered',
+      commitment: 'Commitment',
+    },
+  },
+  about: {
+    tag: 'About me',
+    heading1: 'Engineer by craft,',
+    heading2: 'builder by passion.',
+    p1: "I'm a Full Stack Developer focused on building modern, scalable web systems. I care deeply about clean architecture, maintainable code, and delivering real value through technology.",
+    p2: 'I work with the Vue ecosystem on the frontend and Node.js on the backend. I approach every project with an architectural mindset — thinking not just about what works today, but what scales tomorrow.',
+    values: {
+      performance: { label: 'Performance', desc: 'Speed-first approach' },
+      architecture: { label: 'Architecture', desc: 'Scalable by design' },
+      precision: { label: 'Precision', desc: 'Detail-oriented code' },
+      delivery: { label: 'Delivery', desc: 'Ship what matters' },
+    },
+    profile: {
+      location: 'Location',
+      locationValue: 'Colombia - Soacha',
+      experience: 'Experience',
+      experienceValue: '1+ years',
+      focus: 'Focus',
+      focusValue: 'Vue · Node.js · TS',
+      english: 'English',
+      englishValue: 'Intermediate',
+      status: 'Status',
+      statusValue: '✅ Available',
+      role: 'Full Stack Developer',
+      openToWork: 'Open to work',
+    },
+  },
+  skills: {
+    tag: 'Tech Stack',
+    heading: 'Tools I build with',
+  },
+  projects: {
+    tag: 'Work',
+    heading: 'Selected Projects',
+    allOnGithub: 'All projects on GitHub',
+    featured: 'Featured',
+    code: 'Code',
+    liveDemo: 'Live demo',
+    items: {
+      portfolio: {
+        title: 'Developer Portfolio',
+        description: 'Modern SPA built with Vue 3, TypeScript and TailwindCSS. Scalable architecture ready for AI integrations.',
+      },
+      api: {
+        title: 'REST API Platform',
+        description: 'Scalable REST API with authentication, rate limiting, and automatic documentation.',
+      },
+      tasks: {
+        title: 'Task Management App',
+        description: 'Full-stack productivity tool with real-time updates and team collaboration features.',
+      },
+    },
+  },
+  contact: {
+    tag: 'Contact',
+    heading1: "Let's build something",
+    heading2: 'together.',
+    subtitle: "I'm open to freelance projects, full-time opportunities, and interesting collaborations.",
+    orReachMe: 'or reach me on',
+  },
+  footer: {
+    builtWith: 'Built with Vue 3 + TypeScript + TailwindCSS',
+    available: 'Available for work',
+  },
+}

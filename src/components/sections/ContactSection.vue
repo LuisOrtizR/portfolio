@@ -3,18 +3,18 @@
     <div class="max-w-3xl mx-auto text-center">
 
       <!-- Header -->
-      <p class="text-sky-400 text-sm font-medium tracking-widest uppercase mb-4">Contact</p>
+      <p class="text-sky-400 text-sm font-medium tracking-widest uppercase mb-4">{{ t('contact.tag') }}</p>
       <h2 class="font-['Syne'] text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-        Let's build something<br/>
-        <span class="text-sky-400">together.</span>
+        {{ t('contact.heading1') }}<br/>
+        <span class="text-sky-400">{{ t('contact.heading2') }}</span>
       </h2>
       <p class="text-slate-400 mb-12 max-w-md mx-auto">
-        I'm open to freelance projects, full-time opportunities, and interesting collaborations.
+        {{ t('contact.subtitle') }}
       </p>
 
       <!-- Main CTA -->
       <a
-        href="mailto:luisagel930115@gmail.com"
+        href="mailto:luisangel930115@gmail.com"
         class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-sky-400 text-black font-bold text-lg hover:bg-sky-300 transition-colors duration-200 mb-12"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -26,7 +26,7 @@
       <!-- Divider -->
       <div class="flex items-center gap-4 mb-10">
         <div class="flex-1 h-px bg-border" />
-        <span class="text-slate-600 text-xs">or reach me on</span>
+        <span class="text-slate-600 text-xs">{{ t('contact.orReachMe') }}</span>
         <div class="flex-1 h-px bg-border" />
       </div>
 
@@ -72,5 +72,9 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 defineOptions({ name: 'ContactSection' })
+
+const { t } = useI18n()
 </script>

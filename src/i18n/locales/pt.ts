@@ -1,0 +1,87 @@
+export default {
+  nav: {
+    about: 'Sobre mim',
+    skills: 'Habilidades',
+    projects: 'Projetos',
+    contact: 'Contato',
+    hireMe: 'Contrate-me',
+  },
+  hero: {
+    badge: 'Disponível para novos projetos',
+    title1: 'Luis Ortiz',
+    title2: 'Full Stack',
+    title3: 'Developer.',
+    subtitle: 'Construindo sistemas web modernos e escaláveis com arquitetura limpa e atenção aos detalhes.',
+    viewProjects: 'Ver Projetos',
+    letsTalk: 'Vamos conversar →',
+    stats: {
+      experience: 'Anos de experiência',
+      projects: 'Projetos entregues',
+      commitment: 'Comprometimento',
+    },
+  },
+  about: {
+    tag: 'Sobre mim',
+    heading1: 'Engenheiro por ofício,',
+    heading2: 'construtor por paixão.',
+    p1: 'Sou um Desenvolvedor Full Stack focado em construir sistemas web modernos e escaláveis. Me importo profundamente com arquitetura limpa, código sustentável e entrega de valor real através da tecnologia.',
+    p2: 'Trabalho com o ecossistema Vue no frontend e Node.js no backend. Abordo cada projeto com uma mentalidade arquitetônica — pensando não apenas no que funciona hoje, mas no que escala amanhã.',
+    values: {
+      performance: { label: 'Desempenho', desc: 'Abordagem focada em velocidade' },
+      architecture: { label: 'Arquitetura', desc: 'Escalável por design' },
+      precision: { label: 'Precisão', desc: 'Código orientado a detalhes' },
+      delivery: { label: 'Entrega', desc: 'Entregar o que importa' },
+    },
+    profile: {
+      location: 'Localização',
+      locationValue: 'Colômbia - Soacha',
+      experience: 'Experiência',
+      experienceValue: '1+ anos',
+      focus: 'Foco',
+      focusValue: 'Vue · Node.js · TS',
+      english: 'Inglês',
+      englishValue: 'Intermediário',
+      status: 'Status',
+      statusValue: '✅ Disponível',
+      role: 'Desenvolvedor Full Stack',
+      openToWork: 'Aberto para trabalho',
+    },
+  },
+  skills: {
+    tag: 'Stack Tecnológico',
+    heading: 'Ferramentas com as quais construo',
+  },
+  projects: {
+    tag: 'Trabalho',
+    heading: 'Projetos Selecionados',
+    allOnGithub: 'Todos os projetos no GitHub',
+    featured: 'Destaque',
+    code: 'Código',
+    liveDemo: 'Demo ao vivo',
+    items: {
+      portfolio: {
+        title: 'Portfolio de Desenvolvedor',
+        description: 'SPA moderna construída com Vue 3, TypeScript e TailwindCSS. Arquitetura escalável pronta para integrações com IA.',
+      },
+      api: {
+        title: 'Plataforma REST API',
+        description: 'API REST escalável com autenticação, limitação de taxa e documentação automática.',
+      },
+      tasks: {
+        title: 'App de Gestão de Tarefas',
+        description: 'Ferramenta de produtividade full-stack com atualizações em tempo real e recursos de colaboração em equipe.',
+      },
+    },
+  },
+  contact: {
+    tag: 'Contato',
+    heading1: 'Vamos construir algo',
+    heading2: 'juntos.',
+    subtitle: 'Estou aberto a projetos freelance, oportunidades de tempo integral e colaborações interessantes.',
+    orReachMe: 'ou me encontre em',
+  },
+  footer: {
+    builtWith: 'Construído com Vue 3 + TypeScript + TailwindCSS',
+    available: 'Disponível para trabalho',
+  },
+}

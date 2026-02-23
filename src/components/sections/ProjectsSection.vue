@@ -115,7 +115,7 @@ const projects = [
     descKey: 'projects.items.portfolio.description',
     stack: ['Vue 3', 'TypeScript', 'TailwindCSS', 'Vite', 'vue-i18n'],
     repoUrl: 'https://github.com/LuisOrtizR/portfolio',
-    demoUrl: 'https://luisortiz.dev',
+    demoUrl: 'https://luis-ortiz-portfolio.vercel.app/',
     featured: false,
   },
 ]

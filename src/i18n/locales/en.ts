@@ -3,6 +3,7 @@ export default {
     about: 'About',
     skills: 'Skills',
     projects: 'Projects',
+    nasa: 'NASA API',
     contact: 'Contact',
     hireMe: 'Hire me',
   },
@@ -65,6 +66,17 @@ export default {
       'Scalable Systems',
     ],
   },
+  nasa: {
+    tag: 'Live API',
+    heading: 'NASA: Astronomy Picture of the Day',
+    subtitle: "Real-time data fetched directly from NASA's public API using fetch and async/await.",
+    loading: 'Contacting NASA…',
+    error: 'Could not connect to the NASA API.',
+    retry: 'Retry',
+    seeMore: 'See more ↓',
+    seeLess: 'See less ↑',
+    viewHd: 'View in HD',
+  },
   projects: {
     tag: 'Work',
     heading: 'Selected Projects',
@@ -97,5 +109,6 @@ export default {
   footer: {
     builtWith: 'Built with Vue 3 + TypeScript + TailwindCSS',
     available: 'Available for work',
+    nasaApi: 'Live NASA API',
   },
 }

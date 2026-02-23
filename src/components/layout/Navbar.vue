@@ -16,8 +16,14 @@
         <li v-for="link in navLinks" :key="link.href">
           <a
             :href="link.href"
-            class="text-sm text-slate-400 hover:text-white transition-colors duration-200"
+            :class="[
+              'text-sm transition-colors duration-200 flex items-center gap-1.5',
+              link.highlight
+                ? 'text-sky-400 hover:text-sky-300'
+                : 'text-slate-400 hover:text-white'
+            ]"
           >
+            <span v-if="link.highlight" class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
             {{ link.label }}
           </a>
         </li>
@@ -71,8 +77,14 @@
         :key="link.href"
         :href="link.href"
         @click="mobileOpen = false"
-        class="text-slate-300 hover:text-white transition-colors text-base py-1"
+        :class="[
+          'transition-colors text-base py-1 flex items-center gap-2',
+          link.highlight
+            ? 'text-sky-400 hover:text-sky-300'
+            : 'text-slate-300 hover:text-white'
+        ]"
       >
+        <span v-if="link.highlight" class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
         {{ link.label }}
       </a>
 
@@ -123,10 +135,11 @@ const setLocale = (lang: string) => {
 }
 
 const navLinks = computed(() => [
-  { label: t('nav.about'), href: '#about' },
-  { label: t('nav.skills'), href: '#skills' },
+  { label: t('nav.about'),    href: '#about' },
+  { label: t('nav.skills'),   href: '#skills' },
   { label: t('nav.projects'), href: '#projects' },
-  { label: t('nav.contact'), href: '#contact' },
+  { label: t('nav.nasa'),     href: '#nasa', highlight: true },
+  { label: t('nav.contact'),  href: '#contact' },
 ])
 
 const scrolled = ref(false)

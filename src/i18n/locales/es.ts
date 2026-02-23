@@ -3,6 +3,7 @@ export default {
     about: 'Sobre mí',
     skills: 'Habilidades',
     projects: 'Proyectos',
+    nasa: 'NASA API',
     contact: 'Contacto',
     hireMe: 'Contrátame',
   },
@@ -65,6 +66,17 @@ export default {
       'Sistemas Escalables',
     ],
   },
+  nasa: {
+    tag: 'API en Vivo',
+    heading: 'NASA: Foto Astronómica del Día',
+    subtitle: 'Datos en tiempo real obtenidos directamente de la API pública de la NASA usando fetch y async/await.',
+    loading: 'Contactando la NASA…',
+    error: 'No se pudo conectar con la API de la NASA.',
+    retry: 'Reintentar',
+    seeMore: 'Ver más ↓',
+    seeLess: 'Ver menos ↑',
+    viewHd: 'Ver en HD',
+  },
   projects: {
     tag: 'Trabajo',
     heading: 'Proyectos Destacados',
@@ -97,5 +109,6 @@ export default {
   footer: {
     builtWith: 'Construido con Vue 3 + TypeScript + TailwindCSS',
     available: 'Disponible para trabajar',
+    nasaApi: 'NASA API en Vivo',
   },
 }

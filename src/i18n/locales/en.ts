@@ -22,7 +22,7 @@ export default {
   },
   about: {
     tag: 'About me',
-    heading1: 'Engineer by craft,',
+    heading1: 'Developer by craft,',
     heading2: 'builder by passion.',
     p1: "I'm a Full Stack Developer focused on building modern, scalable web systems. I care deeply about clean architecture, maintainable code, and delivering real value through technology.",
     p2: 'I work with the Vue ecosystem on the frontend and Node.js on the backend. I approach every project with an architectural mindset — thinking not just about what works today, but what scales tomorrow.',

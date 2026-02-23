@@ -22,7 +22,7 @@ export default {
   },
   about: {
     tag: 'Sobre mí',
-    heading1: 'Ingeniero por oficio,',
+    heading1: 'Desarrollador por oficio,',
     heading2: 'constructor por pasión.',
     p1: 'Soy un Desarrollador Full Stack enfocado en construir sistemas web modernos y escalables. Me importa profundamente la arquitectura limpia, el código mantenible y entregar valor real a través de la tecnología.',
     p2: 'Trabajo con el ecosistema Vue en el frontend y Node.js en el backend. Abordo cada proyecto con una mentalidad arquitectónica — pensando no solo en lo que funciona hoy, sino en lo que escala mañana.',

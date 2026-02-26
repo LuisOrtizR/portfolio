@@ -4,6 +4,7 @@ export default {
     skills: 'Habilidades',
     projects: 'Proyectos',
     nasa: 'NASA API',
+    certifications: 'Certificaciones',
     contact: 'Contacto',
     hireMe: 'Contrátame',
   },
@@ -19,6 +20,24 @@ export default {
       experience: 'Años de experiencia',
       projects: 'Proyectos entregados',
       commitment: 'Compromiso',
+    },
+  },
+  certifications: {
+    tag: 'Credenciales',
+    heading: 'Certificaciones',
+    verified: 'Verificado',
+    view: 'Ver certificado',
+    clickToView: 'Clic para ver',
+    openFull: 'Abrir completo',
+    items: {
+      sena: {
+        title: 'Tecnólogo en Análisis y Desarrollo de Software',
+        issuer: 'SENA – Centro de Comercio y Servicios',
+      },
+      ia: {
+        title: 'IA Generativa para Líderes Empresariales',
+        issuer: 'LinkedIn Learning – Tomer Cohen',
+      },
     },
   },
   about: {

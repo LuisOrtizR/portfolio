@@ -139,6 +139,7 @@ const navLinks = computed(() => [
   { label: t('nav.skills'),   href: '#skills' },
   { label: t('nav.projects'), href: '#projects' },
   { label: t('nav.nasa'),     href: '#nasa', highlight: true },
+  { label: t('nav.certifications'),  href: '#certifications' },
   { label: t('nav.contact'),  href: '#contact' },
 ])
 

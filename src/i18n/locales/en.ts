@@ -4,6 +4,7 @@ export default {
     skills: 'Skills',
     projects: 'Projects',
     nasa: 'NASA API',
+    certifications: 'Certifications',
     contact: 'Contact',
     hireMe: 'Hire me',
   },
@@ -19,6 +20,24 @@ export default {
       experience: 'Years of experience',
       projects: 'Projects delivered',
       commitment: 'Commitment',
+    },
+  },
+  certifications: {
+    tag: 'Credentials',
+    heading: 'Certifications',
+    verified: 'Verified',
+    view: 'View certificate',
+    clickToView: 'Click to view',
+    openFull: 'Open full',
+    items: {
+      sena: {
+        title: 'Technologist in Software Analysis and Development',
+        issuer: 'SENA – Centro de Comercio y Servicios',
+      },
+      ia: {
+        title: 'Generative AI for Business Leaders',
+        issuer: 'LinkedIn Learning – Tomer Cohen',
+      },
     },
   },
   about: {

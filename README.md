@@ -23,9 +23,7 @@
 
 ## ✨ About This Project
 
-This is not just a portfolio.
-
-It is a **strategically designed, scalable front-end architecture** built with modern technologies and clean engineering principles — crafted to reflect professional standards, technical clarity, and long-term maintainability.
+This is not just a portfolio. It is a **strategically designed, scalable front-end architecture** built with modern technologies and clean engineering principles — crafted to reflect professional standards, technical clarity, and long-term maintainability.
 
 > *"Build a high-performance digital presence that represents your engineering mindset as much as your projects do."*
 
@@ -36,6 +34,7 @@ It is a **strategically designed, scalable front-end architecture** built with m
 - 📁 Showcase professional projects with real context
 - ⚙️ Present technical stack and engineering capabilities
 - 🏗️ Demonstrate architectural thinking and scalability awareness
+- 🌌 Integrate real NASA API data to display valuable space information
 - 🤖 Serve as a foundation for future integrations (AI, APIs, automation)
 
 ---
@@ -49,23 +48,27 @@ This project is built following professional front-end engineering principles:
 - ✅ **Strong typing with TypeScript** — fewer bugs, better developer experience
 - ✅ **Scalable folder architecture** — built to grow without becoming spaghetti
 - ✅ **Performance-first build system** — powered by Vite for instant feedback
+- ✅ **Internationalization (i18n)** — full EN / ES / PT multilingual support
+- ✅ **External API consumption** — NASA APOD integration via environment variables
 
 ### Application Flow
 
 ```
 main.ts
-  └── App.vue
-        └── Router (index.ts)
-              ├── HomeView.vue
-              │     └── AppLayout.vue
-              │           ├── Navbar.vue
-              │           ├── HeroSection.vue
-              │           ├── AboutSection.vue
-              │           ├── SkillsSection.vue
-              │           ├── ProjectsSection.vue
-              │           ├── ContactSection.vue
-              │           └── Footer.vue
-              └── NotFoundView.vue  (404)
+└── App.vue
+    └── Router (index.ts)
+        ├── HomeView.vue
+        │   └── AppLayout.vue
+        │       ├── Navbar.vue
+        │       ├── HeroSection.vue
+        │       ├── AboutSection.vue
+        │       ├── SkillsSection.vue
+        │       ├── ProjectsSection.vue
+        │       ├── CertificationsSection.vue
+        │       ├── NasaApodSection.vue
+        │       ├── ContactSection.vue
+        │       └── AppFooter.vue
+        └── NotFoundView.vue (404)
 ```
 
 Each section is **fully modular and independently maintainable** — no coupling, no side effects.
@@ -81,7 +84,43 @@ Each section is **fully modular and independently maintainable** — no coupling
 | Vite | Latest | Lightning-fast bundling & HMR |
 | TailwindCSS | 3.x | Utility-first styling system |
 | Vue Router | 4.x | SPA Navigation |
+| Vue i18n | Latest | Multilingual support (EN / ES / PT) |
+| NASA APOD API | REST | Real-time space imagery & data |
 | ESLint + oxlint | Latest | Code Quality & Consistency |
+
+---
+
+## 🌌 NASA API Integration
+
+This portfolio integrates NASA's **Astronomy Picture of the Day (APOD)** API, displaying real-time space data directly in the portfolio.
+
+### Setup
+
+Create a `.env` file at the root of the project with the following variable:
+
+```env
+VITE_NASA_API_KEY=your_nasa_api_key_here
+```
+
+> ⚠️ **Never commit your `.env` file to version control.** It is already listed in `.gitignore`.
+
+You can obtain a free API key at [https://api.nasa.gov](https://api.nasa.gov).
+
+The `NasaApodSection.vue` component consumes this key at runtime via `import.meta.env.VITE_NASA_API_KEY` and fetches the Astronomy Picture of the Day, including title, date, explanation, and HD image or video.
+
+---
+
+## 🌍 Internationalization (i18n)
+
+The portfolio supports three languages out of the box:
+
+| Language | File |
+|---|---|
+| 🇺🇸 English | `src/i18n/locales/en.ts` |
+| 🇪🇸 Spanish | `src/i18n/locales/es.ts` |
+| 🇧🇷 Portuguese | `src/i18n/locales/pt.ts` |
+
+The i18n instance is configured in `src/i18n/index.ts` and registered globally in `main.ts`.
 
 ---
 
@@ -89,44 +128,56 @@ Each section is **fully modular and independently maintainable** — no coupling
 
 ```
 portfolio/
-├── public/                          # Static public assets
+├── public/                        # Static public assets
 ├── src/
 │   ├── assets/
-│   │   └── main.css                 # Global styles
+│   │   └── main.css               # Global styles
 │   ├── components/
 │   │   ├── layout/
-│   │   │   ├── AppLayout.vue        # Main page wrapper
-│   │   │   ├── Navbar.vue           # Top navigation bar
-│   │   │   └── Footer.vue           # Footer component
+│   │   │   ├── AppLayout.vue      # Main page wrapper
+│   │   │   ├── Navbar.vue         # Top navigation bar
+│   │   │   └── AppFooter.vue      # Footer component
 │   │   ├── sections/
-│   │   │   ├── HeroSection.vue      # Landing / intro section
-│   │   │   ├── AboutSection.vue     # About me section
-│   │   │   ├── SkillsSection.vue    # Tech skills section
-│   │   │   ├── ProjectsSection.vue  # Projects showcase
-│   │   │   └── ContactSection.vue   # Contact form / links
-│   │   └── ui/                      # Reusable UI primitives
+│   │   │   ├── HeroSection.vue         # Landing / intro section
+│   │   │   ├── AboutSection.vue        # About me section
+│   │   │   ├── SkillsSection.vue       # Tech skills section
+│   │   │   ├── ProjectsSection.vue     # Projects showcase
+│   │   │   ├── CertificationsSection.vue  # Certifications section
+│   │   │   ├── NasaApodSection.vue     # NASA APOD API integration
+│   │   │   └── ContactSection.vue      # Contact form / links
+│   │   └── ui/                    # Reusable UI primitives
 │   ├── config/
-│   │   └── site.config.ts           # App-wide configuration
+│   │   └── site.config.ts         # App-wide configuration
+│   ├── i18n/
+│   │   ├── locales/
+│   │   │   ├── en.ts              # English translations
+│   │   │   ├── es.ts              # Spanish translations
+│   │   │   └── pt.ts              # Portuguese translations
+│   │   └── index.ts               # i18n instance & configuration
 │   ├── router/
-│   │   └── index.ts                 # Route definitions
-│   ├── stores/                      # Pinia state management (ready to scale)
+│   │   └── index.ts               # Route definitions
+│   ├── stores/                    # Pinia state management (ready to scale)
 │   ├── types/
-│   │   └── project.ts               # TypeScript interfaces & types
+│   │   └── project.ts             # TypeScript interfaces & types
 │   ├── views/
-│   │   ├── HomeView.vue             # Main page view
-│   │   └── NotFoundView.vue         # 404 page
-│   ├── App.vue                      # Root component
-│   └── main.ts                      # Application entry point
-├── env.d.ts                         # Environment type declarations
-├── index.html                       # HTML entry point
-├── vite.config.ts                   # Vite configuration
-├── tsconfig.json                    # TypeScript base config
-├── tsconfig.app.json                # App-specific TS config
-├── tsconfig.node.json               # Node-specific TS config
-├── eslint.config.ts                 # ESLint rules
-├── .oxlintrc.json                   # oxlint configuration
-├── postcss.config.js                # PostCSS / Tailwind pipeline
-└── package.json                     # Dependencies & scripts
+│   │   ├── HomeView.vue           # Main page view
+│   │   └── NotFoundView.vue       # 404 page
+│   ├── App.vue                    # Root component
+│   └── main.ts                    # Application entry point
+├── env.d.ts                       # Environment type declarations
+├── index.html                     # HTML entry point
+├── .env                           # Environment variables (not committed)
+├── .gitignore
+├── .gitattributes
+├── .editorconfig
+├── .oxlintrc.json                 # oxlint configuration
+├── vite.config.ts                 # Vite configuration
+├── tsconfig.json                  # TypeScript base config
+├── tsconfig.app.json              # App-specific TS config
+├── tsconfig.node.json             # Node-specific TS config
+├── eslint.config.ts               # ESLint rules
+├── postcss.config.js              # PostCSS / Tailwind pipeline
+└── package.json                   # Dependencies & scripts
 ```
 
 > The structure is intentionally designed to scale into API integrations, authentication systems, headless CMS, AI-driven features, and full-stack expansion without refactoring.
@@ -168,7 +219,17 @@ cd portfolio
 npm install
 ```
 
-### 3️⃣ Start development server
+### 3️⃣ Configure environment variables
+
+Create a `.env` file at the root of the project:
+
+```env
+VITE_NASA_API_KEY=your_nasa_api_key_here
+```
+
+> Get your free API key at [https://api.nasa.gov](https://api.nasa.gov)
+
+### 4️⃣ Start development server
 
 ```bash
 npm run dev
@@ -216,17 +277,21 @@ Recommended platforms for static hosting:
 
 All platforms support automatic deployments from GitHub on every push to `main`.
 
+> ⚠️ Remember to add your `VITE_NASA_API_KEY` as an environment variable in your hosting provider's dashboard — do **not** commit your `.env` file.
+
 ---
 
 ## 📈 Roadmap
 
+- [x] Multilingual support (EN / ES / PT)
+- [x] NASA APOD API integration
+- [x] Certifications section
 - [ ] Dynamic project loading from external API
 - [ ] AI-powered recruiter assistant chatbot
 - [ ] Interactive project live demos
 - [ ] Admin panel for content management
 - [ ] Full-stack expansion with backend integration
 - [ ] Dark / Light mode toggle
-- [ ] Multilingual support (EN / ES)
 
 ---
 
@@ -257,10 +322,9 @@ Full Stack Developer
 
 *Focused on scalable architecture, clean engineering, and intelligent systems.*
 
-[![GitHub](https://github.com/LuisOrtizR?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LuisOrtizR)
-[![LinkedIn](https://www.linkedin.com/in/luis-romero-dev/?style=for-the-badge&logo=linkedin&logoColor=white)]()
-[![Portfolio](https://img.shields.io/badge/Portfolio-Live-42b883?style=for-the-badge&logo=vue.js&logoColor=white)]()
-
+[![GitHub](https://img.shields.io/badge/GitHub-LuisOrtizR-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LuisOrtizR)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-luis--romero--dev-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luis-romero-dev/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-42b883?style=for-the-badge&logo=vue.js&logoColor=white)](https://luis-ortiz-portfolio.vercel.app/)
 
 </div>
 

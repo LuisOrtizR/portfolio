@@ -6,6 +6,7 @@
     <ProjectsSection />
     <NasaApodSection />
     <CertificationsSection />
+    <AiChatSection />
     <ContactSection />
   </AppLayout>
 </template>
@@ -18,5 +19,6 @@ import SkillsSection from '@/components/sections/SkillsSection.vue'
 import ProjectsSection from '@/components/sections/ProjectsSection.vue'
 import NasaApodSection from '@/components/sections/NasaApodSection.vue'
 import CertificationsSection from '@/components/sections/Certificationssection.vue'
+import AiChatSection from '@/components/sections/AiChatSection.vue'
 import ContactSection from '@/components/sections/ContactSection.vue'
 </script>

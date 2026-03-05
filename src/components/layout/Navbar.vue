@@ -18,12 +18,15 @@
             :href="link.href"
             :class="[
               'text-sm transition-colors duration-200 flex items-center gap-1.5',
-              link.highlight
-                ? 'text-sky-400 hover:text-sky-300'
-                : 'text-slate-400 hover:text-white'
+              link.highlight === 'ai'
+                ? 'text-violet-400 hover:text-violet-300'
+                : link.highlight
+                  ? 'text-sky-400 hover:text-sky-300'
+                  : 'text-slate-400 hover:text-white'
             ]"
           >
-            <span v-if="link.highlight" class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+            <span v-if="link.highlight === 'nasa'" class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+            <span v-if="link.highlight === 'ai'" class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
             {{ link.label }}
           </a>
         </li>
@@ -79,12 +82,15 @@
         @click="mobileOpen = false"
         :class="[
           'transition-colors text-base py-1 flex items-center gap-2',
-          link.highlight
-            ? 'text-sky-400 hover:text-sky-300'
-            : 'text-slate-300 hover:text-white'
+          link.highlight === 'ai'
+            ? 'text-violet-400 hover:text-violet-300'
+            : link.highlight
+              ? 'text-sky-400 hover:text-sky-300'
+              : 'text-slate-300 hover:text-white'
         ]"
       >
-        <span v-if="link.highlight" class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+        <span v-if="link.highlight === 'nasa'" class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+        <span v-if="link.highlight === 'ai'" class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
         {{ link.label }}
       </a>
 
@@ -135,12 +141,13 @@ const setLocale = (lang: string) => {
 }
 
 const navLinks = computed(() => [
-  { label: t('nav.about'),    href: '#about' },
-  { label: t('nav.skills'),   href: '#skills' },
-  { label: t('nav.projects'), href: '#projects' },
-  { label: t('nav.nasa'),     href: '#nasa', highlight: true },
-  { label: t('nav.certifications'),  href: '#certifications' },
-  { label: t('nav.contact'),  href: '#contact' },
+  { label: t('nav.about'),         href: '#about' },
+  { label: t('nav.skills'),        href: '#skills' },
+  { label: t('nav.projects'),      href: '#projects' },
+  { label: t('nav.nasa'),          href: '#nasa',    highlight: 'nasa' },
+  { label: t('nav.certifications'),href: '#certifications' },
+  { label: t('nav.askMe'),         href: '#ai-chat', highlight: 'ai' },
+  { label: t('nav.contact'),       href: '#contact' },
 ])
 
 const scrolled = ref(false)

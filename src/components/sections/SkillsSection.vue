@@ -3,7 +3,10 @@
     <div class="max-w-6xl mx-auto px-6 md:px-12">
 
       <div class="text-center mb-16">
-        <p class="text-sky-400 text-sm font-medium tracking-widest uppercase mb-4">{{ t('skills.tag') }}</p>
+        <div class="inline-flex items-center gap-2 mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+          <p class="text-sky-400 text-xs font-semibold tracking-widest uppercase">{{ t('skills.tag') }}</p>
+        </div>
         <h2 class="font-['Syne'] text-4xl md:text-5xl font-bold text-white">
           {{ t('skills.heading') }}
         </h2>
@@ -56,22 +59,22 @@ const skills = [
   {
     categoryKey: 'skills.categories.frontend',
     icon: '🖥️',
-    items: ['Vue 3', 'TypeScript', 'TailwindCSS', 'Vite', 'Pinia'],
+    items: ['Vue 3', 'TypeScript', 'TailwindCSS', 'Vite', 'Pinia', 'HTML5', 'CSS3'],
   },
   {
     categoryKey: 'skills.categories.backend',
     icon: '⚙️',
-    items: ['Node.js', 'Express', 'REST APIs', 'PostgreSQL', 'Prisma'],
+    items: ['Node.js', 'Express', 'REST APIs', 'JWT', 'RBAC', 'Prisma ORM'],
   },
   {
-    categoryKey: 'skills.categories.devops',
-    icon: '🚀',
-    items: ['Git', 'Docker', 'Vercel', 'Netlify', 'CI/CD'],
+    categoryKey: 'skills.categories.databases',
+    icon: '🗄️',
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQL', 'SharePoint'],
   },
   {
-    categoryKey: 'skills.categories.tools',
-    icon: '🛠️',
-    items: ['VS Code', 'Figma', 'Postman', 'Linux', 'ESLint'],
+    categoryKey: 'skills.categories.bi',
+    icon: '📊',
+    items: ['Power BI', 'Power Apps', 'Power Automate', 'DAX', 'Git', 'Docker', 'Postman'],
   },
 ]
 </script>

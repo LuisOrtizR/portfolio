@@ -24,6 +24,9 @@ export default {
     },
   },
   certifications: {
+    inProgress: 'Em Andamento',
+    learning: 'Aprendendo',
+    progress: 'Progresso',
     tag: 'Credenciais',
     heading: 'Certificações',
     verified: 'Verificado',
@@ -120,6 +123,7 @@ export default {
     },
   },
   aiChat: {
+    reset: 'Limpar',
     tag: 'IA · Pergunte-me qualquer coisa',
     heading: 'Converse com meu CV',
     subtitle: 'Pergunte sobre minha experiência, projetos ou disponibilidade. Desenvolvido com Claude AI.',
@@ -136,6 +140,7 @@ export default {
     },
   },
   contact: {
+    openGmail: 'Abrir Gmail',
     tag: 'Contato',
     heading1: 'Vamos construir algo',
     heading2: 'juntos.',

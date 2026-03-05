@@ -17,7 +17,7 @@
 
       <div class="chat-shell rounded-2xl border border-white/8 bg-white/3 overflow-hidden">
 
-        <div class="flex items-center justify-between px-4 py-3 border-b border-white/6 bg-white/[0.02]">
+        <div class="flex items-center justify-between px-4 py-3 border-b border-white/6 bg-white/2">
           <div class="flex items-center gap-3">
             <div class="flex gap-1.5">
               <span class="w-3 h-3 rounded-full bg-red-500/60"></span>

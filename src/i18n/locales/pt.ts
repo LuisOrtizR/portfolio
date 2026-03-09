@@ -42,6 +42,10 @@ export default {
         title: 'IA Generativa para Líderes Empresariais',
         issuer: 'LinkedIn Learning – Tomer Cohen',
       },
+      js: {
+        title: 'JavaScript Essencial',
+        issuer: 'LinkedIn Learning – Natalia Corea',
+      },
     },
   },
   about: {

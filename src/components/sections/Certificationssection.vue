@@ -224,6 +224,15 @@ const certifications: Cert[] = [
     previewUrl: 'https://drive.google.com/file/d/1JNzviVCRYXjJd1hyOY9B0ETTL7Crre8Z/preview',
     driveUrl: 'https://drive.google.com/file/d/1JNzviVCRYXjJd1hyOY9B0ETTL7Crre8Z/view?usp=drive_link',
   },
+  {
+    id: 3,
+    titleKey: 'certifications.items.js.title',
+    issuerKey: 'certifications.items.js.issuer',
+    date: 'Mar 2026',
+    tags: ['JavaScript', 'ES6+', 'DOM', 'Async/Await', 'POO'],
+    previewUrl: 'https://drive.google.com/file/d/1Qxf07R685GHc_dBrYKcit5KIDerbdjuk/preview',
+    driveUrl: 'https://drive.google.com/file/d/1Qxf07R685GHc_dBrYKcit5KIDerbdjuk/view?usp=drive_link',
+  },
 ]
 
 const inProgress: Course[] = [
@@ -237,14 +246,6 @@ const inProgress: Course[] = [
   },
   {
     id: 2,
-    title: 'JavaScript esencial',
-    platform: 'LinkedIn Learning',
-    icon: '⚡',
-    iconBg: 'bg-yellow-400/8 border border-yellow-400/15',
-    progress: 60,
-  },
-  {
-    id: 3,
     title: 'Inglés A1 Beginners',
     platform: 'ABA English',
     icon: '🇬🇧',

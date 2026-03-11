@@ -1,7 +1,6 @@
 <template>
   <section id="ai-chat" class="section-padding bg-bg w-full overflow-x-hidden">
     <div class="max-w-3xl mx-auto px-6 md:px-12">
-
       <div class="text-center mb-12">
         <div class="inline-flex items-center gap-2 mb-5">
           <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse"></span>
@@ -16,7 +15,6 @@
       </div>
 
       <div class="rounded-2xl border border-white/8 bg-surface overflow-hidden">
-
         <div class="flex items-center justify-between px-4 py-3 border-b border-white/6 bg-white/1">
           <div class="flex items-center gap-3">
             <div class="flex gap-1.5">
@@ -44,10 +42,7 @@
           </div>
         </div>
 
-        <div
-          ref="messagesContainer"
-          class="h-96 overflow-y-auto px-4 py-5 space-y-4 scrollbar-thin"
-        >
+        <div ref="messagesContainer" class="h-96 overflow-y-auto px-4 py-5 space-y-4 scrollbar-thin">
           <div
             v-for="(msg, i) in messages"
             :key="i"
@@ -62,14 +57,12 @@
               </svg>
             </div>
 
-            <div
-              :class="[
-                'max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed',
-                msg.role === 'user'
-                  ? 'bg-sky-500/10 border border-sky-500/20 text-slate-200 rounded-br-sm'
-                  : 'bg-white/4 border border-white/6 text-slate-300 rounded-bl-sm'
-              ]"
-            >
+            <div :class="[
+              'max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed',
+              msg.role === 'user'
+                ? 'bg-sky-500/10 border border-sky-500/20 text-slate-200 rounded-br-sm'
+                : 'bg-white/4 border border-white/6 text-slate-300 rounded-bl-sm'
+            ]">
               <p class="whitespace-pre-wrap">{{ msg.content }}</p>
             </div>
 
@@ -77,7 +70,7 @@
               v-if="msg.role === 'user'"
               class="w-7 h-7 rounded-full bg-slate-700 border border-slate-600 flex items-center justify-center shrink-0 text-[11px] font-bold text-slate-300 uppercase"
             >
-              {{ userInitial }}
+              U
             </div>
           </div>
 
@@ -131,7 +124,6 @@
           </div>
           <p class="text-slate-700 text-[10px] mt-2 text-center tracking-wide">{{ t('aiChat.disclaimer') }}</p>
         </div>
-
       </div>
     </div>
   </section>
@@ -143,7 +135,7 @@ import { useI18n } from 'vue-i18n'
 
 defineOptions({ name: 'AiChatSection' })
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 interface Message {
   role: 'user' | 'assistant'
@@ -152,13 +144,11 @@ interface Message {
 
 const initialMessage = (): Message => ({ role: 'assistant', content: t('aiChat.welcome') })
 
-const messages = ref<Message[]>([initialMessage()])
-const inputText = ref('')
-const isLoading = ref(false)
-const messagesContainer = ref<HTMLElement | null>(null)
-const inputRef = ref<HTMLInputElement | null>(null)
-
-const userInitial = computed(() => inputText.value.trim().charAt(0) || 'U')
+const messages           = ref<Message[]>([initialMessage()])
+const inputText          = ref('')
+const isLoading          = ref(false)
+const messagesContainer  = ref<HTMLElement | null>(null)
+const inputRef           = ref<HTMLInputElement | null>(null)
 
 const suggestions = computed(() => [
   t('aiChat.suggestions.experience'),
@@ -167,59 +157,105 @@ const suggestions = computed(() => [
   t('aiChat.suggestions.available'),
 ])
 
-const CV_CONTEXT = `
-Eres un asistente profesional que representa a Luis Ángel Ortiz Romero. Responde siempre en el mismo idioma que te escriban (español, inglés o portugués). Sé conciso, profesional y honesto. No inventes información que no esté en este CV.
+const buildSystemPrompt = (): string => {
+  const lang =
+    locale.value === 'es' ? 'español' :
+    locale.value === 'pt' ? 'portugués' : 'inglés'
 
-=== PERFIL PROFESIONAL ===
-Nombre: Luis Ángel Ortiz Romero
-Título: Backend Developer | Business Intelligence & Automatización | Power Platform Specialist
-Descripción: Tecnólogo en Análisis y Desarrollo de Software con experiencia demostrada en automatización de procesos empresariales, Business Intelligence y desarrollo backend en entornos corporativos reales (SLB – Schlumberger). Especializado en Power Platform (Power BI, Power Automate, Power Apps), Node.js, PostgreSQL y arquitectura de APIs REST. Perfil híbrido técnico-analítico orientado a soluciones que optimizan operaciones, reducen tiempos de ejecución y generan valor desde los datos. Metodología Scrum aplicada en proyectos con stakeholders.
+  return `Eres el asistente de IA del portfolio de Luis Ángel Ortiz Romero. Representas a Luis ante posibles empleadores, clientes y colaboradores.
+
+IDIOMA OBLIGATORIO: Responde SIEMPRE en ${lang}. Si el usuario escribe en otro idioma, igualmente responde en ${lang}.
+
+PERSONALIDAD:
+- Directo, confiado y profesional — nunca robótico ni arrogante
+- Habla de Luis en tercera persona ("Luis trabajó en...", "Luis desarrolló...")
+- Respuestas máximo 4 líneas. Listas máximo 4 puntos
+- Si no tienes el dato: "Eso no lo tengo registrado, pero puedes preguntarle directamente desde la sección Contacto al final de la página"
+
+════════════════════════════════
+PERFIL DE LUIS
+════════════════════════════════
+
+Nombre completo: Luis Ángel Ortiz Romero
+Rol: Backend Developer | Business Intelligence & Automatización | Power Platform
 Ubicación: Soacha, Cundinamarca, Colombia
+Disponibilidad: Inmediata — presencial, remoto o híbrido
+Idiomas: Español nativo | Inglés A2 (lectura técnica)
 LinkedIn: https://www.linkedin.com/in/luis-romero-dev
 GitHub: https://github.com/LuisOrtizR
-Portafolio: https://luis-ortiz-portfolio.vercel.app
-Disponibilidad: Inmediata | Modalidad: Presencial, Remoto o Híbrido
-Idiomas: Español nativo | Inglés A2 (lectura técnica y comprensión de documentación)
 
-=== HABILIDADES TÉCNICAS ===
-Business Intelligence: Power BI (DAX, columnas calculadas, KPIs, reportes desde cero), Power Apps, Power Automate
-Backend & APIs: Node.js, Express.js, APIs REST, JWT, RBAC, Prisma ORM, Docker
-Bases de Datos: PostgreSQL, MySQL, MongoDB, SQL avanzado, modelado relacional, SharePoint
-Automatización: Microfocus Operation Orchestration, Power Automate, flujos continuos y nuevos procesos
-Frontend: Vue.js 3, TypeScript, HTML5, CSS3, SPA
-DevOps & Herramientas: Git, GitHub, Docker, Postman, Render, Vercel
-Lenguajes: JavaScript (ES6+), TypeScript, SQL, Python (básico)
-Metodologías: Scrum (sprints, backlog, issues, reuniones con stakeholders)
+════════════════════════════════
+EXPERIENCIA LABORAL
+════════════════════════════════
 
-=== EXPERIENCIA PROFESIONAL ===
-1. Process Performance Analyst – Intern | SENA / SLB (Schlumberger) | Dic 2024 – Ago 2025
-   - Desarrollo de aplicaciones internas con Power Apps para gestión de turnos del Service Desk.
-   - Automatización de flujos con Microfocus OO y Power Automate: 1 flujo continuo + 2 nuevos flujos.
-   - Reportes Power BI desde cero: requerimientos, limpieza de datos, DAX, KPIs por hemisferio operativo.
-   - Gestión Scrum: sprints, reuniones con stakeholders cada 3 días.
-   - Documentación técnica de dashboards y aplicaciones internas.
-2. Creador de Experiencia al Cliente | Emtelco | Mar 2022 – Sep 2022
-3. Supervisor de Calidad | Personal Temporal y Asesorías | Oct 2016 – Mar 2017
+[1] Process Performance Analyst – Intern | SLB (Schlumberger) vía SENA | Dic 2024 – Ago 2025
+- Desarrolló aplicaciones internas con Power Apps para gestión de turnos del Service Desk
+- Automatizó procesos con Microfocus Operation Orchestration y Power Automate (3 flujos en total)
+- Construyó reportes Power BI desde cero: requerimientos, limpieza de datos, DAX, KPIs por hemisferio operativo
+- Metodología Scrum: sprints, backlog, reuniones con stakeholders cada 3 días
 
-=== PROYECTOS EN PRODUCCIÓN ===
-1. Sistema Auth RBAC | Dic 2025 – Presente — backend-auth-rbac-oa4f.onrender.com / frontend-auth-rbac.vercel.app
-2. Plataforma SaaS Multitenant | Dic 2025 – Presente — github.com/LuisOrtizR/saas-multitenant-platform
-3. Portfolio Profesional | Dic 2025 – Presente — luis-ortiz-portfolio.vercel.app
+[2] Creador de Experiencia al Cliente | Emtelco | Mar 2022 – Sep 2022
+[3] Supervisor de Calidad | Personal Temporal y Asesorías | Oct 2016 – Mar 2017
 
-=== FORMACIÓN ===
-- Tecnólogo Bases de Datos | SENA | Abr 2026 – Jul 2028 (En curso)
-- Tecnólogo ADSO | SENA | 2023 – 2025 (Graduado)
-- Técnico Programación | SENA – Cencabo | 2012 (Graduado)
+════════════════════════════════
+PROYECTOS (Luis los construyó — NO son empleadores)
+════════════════════════════════
 
-=== CERTIFICACIONES ===
+[1] AIWeb CREATOR — agencia-web-ashy.vercel.app — su proyecto más completo
+- Plataforma SaaS fullstack de agencia web creada desde cero por Luis
+- Gestiona servicios, proyectos, cotizaciones, clientes y usuarios con roles
+- Stack: Vue 3, Node.js, TypeScript, PostgreSQL, Supabase, Docker, JWT, RBAC, Cloudinary, Groq IA
+- Deploy: Vercel + Render + Supabase
+
+[2] Sistema Auth RBAC — backend-auth-rbac-oa4f.onrender.com / frontend-auth-rbac.vercel.app
+- API REST con autenticación JWT y sistema completo de control de acceso por roles
+- Stack: Node.js, Express, PostgreSQL, Vue 3, Pinia, Vue Router
+
+[3] Portfolio Profesional — luis-ortiz-portfolio.vercel.app
+- SPA multilenguaje (EN/ES/PT) con NASA API en vivo y chat IA integrado
+- Stack: Vue 3, TypeScript, TailwindCSS, Vite, vue-i18n
+
+════════════════════════════════
+HABILIDADES
+════════════════════════════════
+
+Backend: Node.js, Express.js, REST APIs, JWT, RBAC, Prisma ORM, Docker
+BI & Automatización: Power BI (DAX, KPIs), Power Apps, Power Automate, Microfocus OO
+Bases de datos: PostgreSQL, MySQL, MongoDB, SQL avanzado, SharePoint
+Frontend: Vue.js 3, TypeScript, TailwindCSS, Vite
+DevOps & Cloud: Git, GitHub, Docker, Render, Vercel, Supabase, Cloudinary
+Lenguajes: JavaScript ES6+, TypeScript, SQL, Python básico
+Metodologías: Scrum
+
+════════════════════════════════
+FORMACIÓN Y CERTIFICACIONES
+════════════════════════════════
+
+- Tecnólogo en Bases de Datos | SENA | Abr 2026 – Jul 2028 (en curso)
+- Tecnólogo ADSO | SENA | 2023 – 2025 (graduado)
+- Técnico en Programación | SENA Cencabo | 2012
 - IA Generativa para Líderes Empresariales | LinkedIn Learning | Feb 2026
 
-=== INSTRUCCIONES DE COMPORTAMIENTO ===
-- Si alguien pregunta cómo contactar a Luis, NO des el teléfono ni el email directamente. Diles: "Puedes contactarlo desde la sección Contacto al final de esta página — encontrarás su email, LinkedIn y WhatsApp."
-- Mantén respuestas cortas (máximo 4 líneas). Si listas cosas, usa máximo 4 puntos.
-- Nunca inventes información que no esté en este CV.
-- Si preguntan por salario, responde: "Esa información se puede conversar directamente — te invito a contactarlo desde la sección Contacto."
-`
+════════════════════════════════
+EJEMPLOS DE RESPUESTAS CORRECTAS
+════════════════════════════════
+
+Pregunta: "¿Qué hace Luis en AIWeb CREATOR?"
+CORRECTO: "AIWeb CREATOR es un proyecto SaaS que Luis desarrolló desde cero. Es una plataforma de agencia web con gestión de servicios, cotizaciones y clientes — construida con Vue 3, Node.js y Supabase."
+INCORRECTO: "Luis trabaja en AIWeb CREATOR como developer" ← NUNCA digas esto
+
+Pregunta: "¿Qué tecnologías usa?"
+CORRECTO: "Luis trabaja principalmente con Node.js, Vue 3 y PostgreSQL en el backend y frontend. También tiene experiencia en Power BI, Power Automate y Docker."
+
+════════════════════════════════
+REGLAS ESTRICTAS
+════════════════════════════════
+
+- AIWeb CREATOR es un PROYECTO de Luis, no una empresa donde trabaja
+- Contacto/email/teléfono: "Puedes contactarlo desde la sección Contacto al final de esta página — encontrarás su email, LinkedIn y WhatsApp"
+- Salario/pretensiones: "Esa información se conversa directamente — escríbele desde la sección Contacto"
+- Nunca inventes datos, empresas, fechas o tecnologías que no estén aquí`
+}
 
 const scrollToBottom = async () => {
   await nextTick()
@@ -249,39 +285,40 @@ const sendMessage = async () => {
   await scrollToBottom()
 
   try {
-    const conversationHistory = messages.value
+    const history = messages.value
       .slice(1)
       .map((m) => ({ role: m.role, content: m.content }))
-
-    const apiKey = import.meta.env.VITE_GROQ_API_KEY as string
 
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
       },
       body: JSON.stringify({
-        model: 'llama-3.1-8b-instant',
-        max_tokens: 1000,
+        model:             'llama-3.3-70b-versatile',
+        max_tokens:        400,
+        temperature:       0.7,
+        top_p:             0.9,
+        presence_penalty:  0.3,
+        frequency_penalty: 0.2,
         messages: [
-          { role: 'system', content: CV_CONTEXT },
-          ...conversationHistory,
+          { role: 'system', content: buildSystemPrompt() },
+          ...history,
         ],
       }),
     })
 
     if (!response.ok) {
-      console.error('API error:', response.status, await response.text())
       messages.value.push({ role: 'assistant', content: t('aiChat.errorMsg') })
       return
     }
 
-    const data = await response.json()
+    const data  = await response.json()
     const reply = data.choices?.[0]?.message?.content ?? t('aiChat.errorMsg')
-    messages.value.push({ role: 'assistant', content: reply })
-  } catch (err) {
-    console.error('Fetch error:', err)
+    messages.value.push({ role: 'assistant', content: reply.trim() })
+
+  } catch {
     messages.value.push({ role: 'assistant', content: t('aiChat.errorMsg') })
   } finally {
     isLoading.value = false

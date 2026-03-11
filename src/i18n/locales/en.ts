@@ -112,9 +112,9 @@ export default {
     code: 'Code',
     liveDemo: 'Live demo',
     items: {
-      backendRbac: {
-        title: 'Backend Auth RBAC API',
-        description: 'Professional REST API with JWT authentication and a full Role-Based Access Control system. Modular architecture with Express, Zod validation, rate limiting, and centralized error handling — production-ready.',
+      aiweb: {
+        title: 'AIWeb CREATOR',
+        description: 'Full-stack web agency platform to manage services, projects, quotes, and clients. Built with Vue 3, Node.js, Supabase and Docker. Features JWT auth, role-based access, AI integration, and cloud image storage.',
       },
       frontendRbac: {
         title: 'Access Management System',

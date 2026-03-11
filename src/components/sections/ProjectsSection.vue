@@ -1,7 +1,6 @@
 <template>
   <section id="projects" class="section-padding bg-surface w-full overflow-x-hidden">
     <div class="max-w-6xl mx-auto px-6 md:px-12">
-
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
         <div>
           <div class="inline-flex items-center gap-2 mb-5">
@@ -28,12 +27,10 @@
         <div
           v-for="project in projects"
           :key="project.id"
-          class="project-card group relative flex flex-col rounded-2xl border border-white/6 bg-bg overflow-hidden hover:border-sky-400/25 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+          class="group relative flex flex-col rounded-2xl border border-white/6 bg-bg overflow-hidden hover:border-sky-400/25 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
         >
-          <!-- Top accent -->
           <div class="h-px w-full bg-linear-to-r from-sky-500/0 via-sky-400/50 to-sky-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          <!-- Featured badge strip -->
           <div v-if="project.featured" class="absolute top-4 right-4 z-10">
             <span class="text-[10px] px-2.5 py-1 rounded-full bg-sky-400/10 text-sky-400 border border-sky-400/20 font-semibold tracking-wide">
               {{ t('projects.featured') }}
@@ -41,18 +38,13 @@
           </div>
 
           <div class="flex flex-col flex-1 p-6">
-
-            <!-- Icon -->
             <div class="w-10 h-10 rounded-xl bg-sky-400/8 border border-sky-400/15 flex items-center justify-center text-sky-400 mb-5">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-              </svg>
+              <component :is="project.icon" class="w-5 h-5" />
             </div>
 
             <h3 class="font-['Syne'] font-bold text-white text-lg mb-3 leading-snug">{{ t(project.titleKey) }}</h3>
             <p class="text-slate-500 text-sm leading-relaxed flex-1">{{ t(project.descKey) }}</p>
 
-            <!-- Stack tags -->
             <div class="flex flex-wrap gap-1.5 mt-5">
               <span
                 v-for="tech in project.stack"
@@ -63,9 +55,9 @@
               </span>
             </div>
 
-            <!-- Links -->
             <div class="flex items-center gap-5 mt-5 pt-5 border-t border-white/6">
               <a
+                v-if="project.repoUrl"
                 :href="project.repoUrl"
                 target="_blank"
                 class="flex items-center gap-1.5 text-slate-500 hover:text-white text-xs font-medium transition-colors duration-200"
@@ -90,45 +82,60 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { h } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 defineOptions({ name: 'ProjectsSection' })
 
 const { t } = useI18n()
 
+const IconGlobe = () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
+  h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '1.5', d: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9' }),
+])
+
+const IconShield = () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
+  h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '1.5', d: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' }),
+])
+
+const IconCode = () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
+  h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '1.5', d: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4' }),
+])
+
 const projects = [
   {
     id: 1,
-    titleKey: 'projects.items.backendRbac.title',
-    descKey: 'projects.items.backendRbac.description',
-    stack: ['Node.js', 'Express', 'JWT', 'Zod', 'PostgreSQL', 'Helmet'],
-    repoUrl: 'https://github.com/LuisOrtizR/backend-auth-rbac',
-    demoUrl: 'https://backend-auth-rbac-oa4f.onrender.com',
+    titleKey: 'projects.items.aiweb.title',
+    descKey:  'projects.items.aiweb.description',
+    stack:    ['Vue 3', 'Node.js', 'TypeScript', 'PostgreSQL', 'Supabase', 'TailwindCSS', 'Docker'],
+    repoUrl:  'https://github.com/LuisOrtizR/AgenciaWeb',
+    demoUrl:  'https://agencia-web-ashy.vercel.app/',
     featured: true,
+    icon:     IconGlobe,
   },
   {
     id: 2,
     titleKey: 'projects.items.frontendRbac.title',
-    descKey: 'projects.items.frontendRbac.description',
-    stack: ['Vue 3', 'TypeScript', 'Pinia', 'Vue Router', 'Axios', 'TailwindCSS'],
-    repoUrl: 'https://github.com/LuisOrtizR/frontend-auth-rbac',
-    demoUrl: 'https://frontend-auth-rbac.vercel.app/login',
+    descKey:  'projects.items.frontendRbac.description',
+    stack:    ['Vue 3', 'TypeScript', 'Pinia', 'Vue Router', 'Axios', 'TailwindCSS'],
+    repoUrl:  'https://github.com/LuisOrtizR/frontend-auth-rbac',
+    demoUrl:  'https://frontend-auth-rbac.vercel.app/login',
     featured: true,
+    icon:     IconShield,
   },
   {
     id: 3,
     titleKey: 'projects.items.portfolio.title',
-    descKey: 'projects.items.portfolio.description',
-    stack: ['Vue 3', 'TypeScript', 'TailwindCSS', 'Vite', 'vue-i18n'],
-    repoUrl: 'https://github.com/LuisOrtizR/portfolio',
-    demoUrl: 'https://luis-ortiz-portfolio.vercel.app/',
+    descKey:  'projects.items.portfolio.description',
+    stack:    ['Vue 3', 'TypeScript', 'TailwindCSS', 'Vite', 'vue-i18n'],
+    repoUrl:  'https://github.com/LuisOrtizR/portfolio',
+    demoUrl:  null,
     featured: false,
+    icon:     IconCode,
   },
 ]
 </script>

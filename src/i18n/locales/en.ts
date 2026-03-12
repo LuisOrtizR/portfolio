@@ -8,6 +8,7 @@ export default {
     askMe: 'Ask me',
     contact: 'Contact',
     hireMe: 'Hire me',
+    dashboard: 'Dashboard',
   },
   hero: {
     badge: 'Available for new projects',
@@ -98,11 +99,11 @@ export default {
     heading: 'NASA: Astronomy Picture of the Day',
     subtitle: "Real-time data fetched directly from NASA's public API using fetch and async/await.",
     loading: 'Contacting NASA…',
-    error: 'Could not connect to the NASA API.',
+    error: 'Error loading data.',
     retry: 'Retry',
-    seeMore: 'See more ↓',
-    seeLess: 'See less ↑',
-    viewHd: 'View in HD',
+    viewHd: 'View HD',
+    seeMore: 'See more',
+    seeLess: 'See less',
   },
   projects: {
     tag: 'Work',
@@ -125,6 +126,34 @@ export default {
         description: 'Modern SPA with multilingual support (EN/ES/PT), built with Vue 3, TypeScript and TailwindCSS. Scalable architecture with vue-i18n and auto locale detection.',
       },
     },
+  },
+  dashboard: {
+    tag: 'Real-Time Operations',
+    heading: 'Full Stack Command Center',
+    subtitle: 'Live monitoring of global weather, financial markets, and international holidays connected to my custom backend.',
+    weather: {
+      title: 'Global Weather',
+      feelsLike: 'Feels',
+      humidity: 'Humidity',
+      wind: 'Wind',
+    },
+    market: {
+      title: 'Stock Market',
+      gainers: 'Gainers',
+      losers: 'Losers',
+      volume: 'Vol.',
+    },
+    holidays: {
+      title: 'World Holidays',
+      today: 'Today',
+      upcoming: 'Upcoming',
+      noHolidays: 'No holidays today',
+    },
+    status: {
+      live: 'Live',
+      offline: 'Offline',
+      loading: 'Syncing...',
+    }
   },
   aiChat: {
     reset: 'Clear',

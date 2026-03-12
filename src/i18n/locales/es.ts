@@ -8,6 +8,7 @@ export default {
     askMe: 'Pregúntame',
     contact: 'Contacto',
     hireMe: 'Contrátame',
+    dashboard: 'Dashboard',
   },
   hero: {
     badge: 'Disponible para nuevos proyectos',
@@ -103,6 +104,34 @@ export default {
     seeMore: 'Ver más ↓',
     seeLess: 'Ver menos ↑',
     viewHd: 'Ver en HD',
+  },
+  dashboard: {
+    tag: 'Operaciones en Tiempo Real',
+    heading: 'Centro de Comando Full Stack',
+    subtitle: 'Monitoreo en vivo de clima global, mercados financieros y feriados internacionales conectado a mi backend personalizado.',
+    weather: {
+      title: 'Clima Global',
+      feelsLike: 'Sensación',
+      humidity: 'Humedad',
+      wind: 'Viento',
+    },
+    market: {
+      title: 'Mercado de Valores',
+      gainers: 'Alzas',
+      losers: 'Bajas',
+      volume: 'Vol.',
+    },
+    holidays: {
+      title: 'Feriados Mundiales',
+      today: 'Hoy',
+      upcoming: 'Próximos',
+      noHolidays: 'Sin feriados hoy',
+    },
+    status: {
+      live: 'En Vivo',
+      offline: 'Desconectado',
+      loading: 'Sincronizando...',
+    }
   },
   projects: {
     tag: 'Trabajo',

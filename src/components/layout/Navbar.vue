@@ -12,23 +12,36 @@
         <span class="text-sky-400">.</span>
       </a>
 
-      <ul class="hidden md:flex items-center gap-6">
-        <li v-for="link in navLinks" :key="link.href">
-          <a
-            :href="link.href"
-            :class="[
-              'text-sm transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap',
-              link.highlight === 'ai'
-                ? 'text-violet-400 hover:text-violet-300'
-                : link.highlight === 'dashboard'
-                  ? 'text-sky-400 hover:text-sky-300'
-                  : 'text-slate-400 hover:text-white'
-            ]"
-          >
-            <span v-if="link.highlight === 'dashboard'" class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse shrink-0" />
-            <span v-if="link.highlight === 'ai'" class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse shrink-0" />
-            {{ link.label }}
-          </a>
+      <ul class="hidden md:flex items-center gap-8 h-full">
+        <li v-for="group in groupedNavLinks" :key="group.href" class="relative group h-full flex items-center">
+          <div class="flex items-center gap-1 cursor-pointer">
+            <a
+              :href="group.href"
+              class="text-sm text-slate-400 hover:text-white transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap"
+            >
+              {{ group.label }}
+            </a>
+            <button v-if="group.children" class="text-slate-500 group-hover:text-sky-400 transition-colors duration-200">
+              <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          <div v-if="group.children" class="absolute top-[calc(100%-8px)] left-1/2 -translate-x-1/2 w-48 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+            <div class="bg-surface/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-2xl shadow-black/50">
+              <a
+                v-for="child in group.children"
+                :key="child.href"
+                :href="child.href"
+                class="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm transition-all duration-200 hover:bg-white/5 group/item"
+                :class="child.highlight === 'dashboard' ? 'text-sky-400 hover:text-sky-300' : 'text-slate-400 hover:text-white'"
+              >
+                <span v-if="child.highlight === 'dashboard'" class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse shrink-0" />
+                {{ child.label }}
+              </a>
+            </div>
+          </div>
         </li>
       </ul>
 
@@ -50,9 +63,13 @@
         </div>
 
         <a
-          href="#contact"
+          href="https://drive.google.com/file/d/1bcaZYKUrnkAK_6G6ZNnfOXKcUtUnbvga/view?usp=sharing"
+          target="_blank"
           class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-400/10 border border-sky-400/30 text-sky-400 text-sm font-medium hover:bg-sky-400/20 transition-all duration-200 whitespace-nowrap"
         >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
           {{ t('nav.hireMe') }}
         </a>
       </div>
@@ -119,10 +136,14 @@
         </div>
 
         <a
-          href="#contact"
+          href="https://drive.google.com/file/d/1bcaZYKUrnkAK_6G6ZNnfOXKcUtUnbvga/view?usp=sharing"
+          target="_blank"
           @click="mobileOpen = false"
-          class="mt-3 text-center py-3 rounded-lg bg-sky-400/10 border border-sky-400/30 text-sky-400 text-sm font-medium hover:bg-sky-400/20 transition-all duration-200"
+          class="mt-3 text-center py-3 rounded-lg bg-sky-400/10 border border-sky-400/30 text-sky-400 text-sm font-medium hover:bg-sky-400/20 transition-all duration-200 flex items-center justify-center gap-2"
         >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
           {{ t('nav.hireMe') }}
         </a>
       </div>
@@ -149,15 +170,53 @@ const setLocale = (lang: string) => {
   localStorage.setItem('locale', lang)
 }
 
-const navLinks = computed(() => [
-  { label: t('nav.about'),          href: '#about' },
-  { label: t('nav.skills'),         href: '#skills' },
-  { label: t('nav.projects'), href: '#projects' },
-    { label: t('nav.dashboard'), href: '#dashboard', highlight: 'dashboard' },
-    { label: t('nav.certifications'), href: '#certifications' },
-  { label: t('nav.askMe'),          href: '#ai-chat',  highlight: 'ai' },
-  { label: t('nav.contact'),        href: '#contact' },
+interface NavLink {
+  label: string
+  href: string
+  highlight?: string
+}
+
+interface NavGroup {
+  label: string
+  href: string
+  children?: NavLink[]
+}
+
+const groupedNavLinks = computed<NavGroup[]>(() => [
+  {
+    label: t('nav.about'),
+    href: '#about',
+    children: [
+      { label: t('nav.experience'), href: '#experience' },
+      { label: t('nav.skills'), href: '#skills' },
+      { label: t('nav.certifications'), href: '#certifications' },
+    ]
+  },
+  {
+    label: t('nav.projects'),
+    href: '#projects',
+    children: [
+      { label: t('nav.dashboard'), href: '#dashboard', highlight: 'dashboard' },
+    ]
+  },
+  {
+    label: t('nav.contact'),
+    href: '#contact'
+  }
 ])
+
+const navLinks = computed<NavLink[]>(() => {
+  const links: NavLink[] = []
+  groupedNavLinks.value.forEach(group => {
+    links.push({ label: group.label, href: group.href })
+    if (group.children) {
+      group.children.forEach(child => {
+        links.push(child)
+      })
+    }
+  })
+  return links
+})
 
 const scrolled = ref(false)
 const mobileOpen = ref(false)

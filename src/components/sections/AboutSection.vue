@@ -1,5 +1,5 @@
 <template>
-  <section id="about" class="section-padding bg-surface w-full overflow-x-hidden">
+  <section id="about" class="relative section-padding bg-surface w-full overflow-x-hidden">
     <div class="max-w-6xl mx-auto px-6 md:px-12">
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">

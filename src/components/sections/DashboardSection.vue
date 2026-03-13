@@ -1,11 +1,9 @@
 <template>
   <section id="dashboard" class="section-padding bg-bg w-full overflow-x-hidden relative">
-    <!-- Fondo decorativo sutil -->
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-[120px] pointer-events-none" />
     <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-500/5 rounded-full blur-[120px] pointer-events-none" />
 
     <div class="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
-      <!-- Header -->
       <div class="text-center mb-14">
         <div class="inline-flex items-center gap-2 mb-5">
           <span class="relative flex h-2 w-2">
@@ -22,10 +20,8 @@
         </p>
       </div>
 
-      <!-- Dashboard Grid -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 
-        <!-- Columna Izquierda: Clima (6/12) -->
         <div class="md:col-span-7 space-y-6">
           <div class="rounded-2xl border border-white/8 bg-surface/50 backdrop-blur-sm overflow-hidden flex flex-col h-full">
             <div class="p-5 border-b border-white/6 flex items-center justify-between bg-white/1">
@@ -66,10 +62,8 @@
           </div>
         </div>
 
-        <!-- Columna Derecha: Mercado y Feriados (5/12) -->
         <div class="md:col-span-5 space-y-6">
 
-          <!-- Card Mercado -->
           <div class="rounded-2xl border border-white/8 bg-surface/50 backdrop-blur-sm overflow-hidden">
             <div class="p-5 border-b border-white/6 flex items-center justify-between bg-white/1">
               <div class="flex items-center gap-3">
@@ -104,7 +98,6 @@
             </div>
           </div>
 
-          <!-- Card Feriados -->
           <div class="rounded-2xl border border-white/8 bg-surface/50 backdrop-blur-sm overflow-hidden flex-1">
             <div class="p-5 border-b border-white/6 flex items-center justify-between bg-white/1">
               <div class="flex items-center gap-3">
@@ -119,7 +112,6 @@
                 <Loader2 class="w-6 h-6 text-violet-400 animate-spin opacity-20" />
               </div>
               <div v-else class="space-y-4">
-                <!-- Hoy -->
                 <div v-if="holidayData?.today.length" class="space-y-2">
                   <div class="text-[10px] font-bold text-violet-400 uppercase tracking-widest flex items-center gap-2">
                     <span class="w-1 h-1 rounded-full bg-violet-400"></span>
@@ -134,7 +126,6 @@
                   </div>
                 </div>
 
-                <!-- Próximos -->
                 <div class="space-y-2">
                   <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
                     <span class="w-1 h-1 rounded-full bg-slate-500"></span>
@@ -158,7 +149,6 @@
         </div>
       </div>
 
-      <!-- Footer Dashboard -->
       <div class="mt-8 flex flex-wrap items-center justify-center gap-6 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
         <div class="flex items-center gap-2 text-[10px] text-slate-400 font-mono">
           <Database class="w-3 h-3" /> NODE.JS BACKEND

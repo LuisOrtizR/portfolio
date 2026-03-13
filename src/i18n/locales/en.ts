@@ -3,12 +3,14 @@ export default {
     about: 'About',
     skills: 'Skills',
     projects: 'Projects',
+    experience: 'Experience',
     nasa: 'NASA API',
     certifications: 'Certifications',
-    askMe: 'Ask me',
+    askMe: 'AI Assistant',
     contact: 'Contact',
-    hireMe: 'Hire me',
-    dashboard: 'Dashboard',
+    hireMe: 'Download CV',
+    dashboard: 'Architecture',
+    more: 'More',
   },
   hero: {
     badge: 'Available for new projects',
@@ -105,6 +107,59 @@ export default {
     seeMore: 'See more',
     seeLess: 'See less',
   },
+  experience: {
+    tag: 'Trajectory',
+    heading: 'My Professional Journey',
+    subtitle: 'A timeline of my evolution in the world of technology and business.',
+    items: {
+      slb: {
+        title: 'Process Performance Analyst – Intern',
+        company: 'SLB (Schlumberger)',
+        period: 'Dec 2024 – Aug 2025',
+        desc: 'Process optimization through automation with Power Platform and Microfocus OO. Development of high-impact Power BI Dashboards for data-driven decision making.',
+      },
+      emtelco: {
+        title: 'Customer Experience Specialist',
+        company: 'Emtelco',
+        period: 'Mar 2022 – Sep 2022',
+        desc: 'Technical resolution of requirements and optimization of service flows, improving end-user satisfaction indicators.',
+      },
+      quality: {
+        title: 'Quality Supervisor',
+        company: 'Personal Temporal y Asesorías',
+        period: 'Oct 2016 – Mar 2017',
+        desc: 'Supervision of quality standards and control of operational processes.',
+      }
+    }
+  },
+  dashboard: {
+    tag: 'Infrastructure & APIs',
+    heading: 'Live Full Stack Architecture',
+    subtitle: 'Technical integration demo: Node.js (TS) backend, cache management, multi-API aggregation, and asynchronous consumption from the frontend.',
+    weather: {
+      title: 'Weather API Integration',
+      feelsLike: 'Feels like',
+      humidity: 'Humidity',
+      wind: 'Wind',
+    },
+    market: {
+      title: 'Financial Aggregator',
+      gainers: 'Gainers',
+      losers: 'Losers',
+      volume: 'Vol.',
+    },
+    holidays: {
+      title: 'Multi-Source Holiday Logic',
+      today: 'Today',
+      upcoming: 'Upcoming',
+      noHolidays: 'No holidays today',
+    },
+    status: {
+      live: 'Synced',
+      offline: 'Offline',
+      loading: 'Querying Backend...',
+    }
+  },
   projects: {
     tag: 'Work',
     heading: 'Selected Projects',
@@ -127,34 +182,6 @@ export default {
       },
     },
   },
-  dashboard: {
-    tag: 'Real-Time Operations',
-    heading: 'Full Stack Command Center',
-    subtitle: 'Live monitoring of global weather, financial markets, and international holidays connected to my custom backend.',
-    weather: {
-      title: 'Global Weather',
-      feelsLike: 'Feels',
-      humidity: 'Humidity',
-      wind: 'Wind',
-    },
-    market: {
-      title: 'Stock Market',
-      gainers: 'Gainers',
-      losers: 'Losers',
-      volume: 'Vol.',
-    },
-    holidays: {
-      title: 'World Holidays',
-      today: 'Today',
-      upcoming: 'Upcoming',
-      noHolidays: 'No holidays today',
-    },
-    status: {
-      live: 'Live',
-      offline: 'Offline',
-      loading: 'Syncing...',
-    }
-  },
   aiChat: {
     reset: 'Clear',
     tag: 'AI · Ask me anything',
@@ -171,6 +198,10 @@ export default {
       projects: 'Tell me about your projects',
       available: 'Are you available for work?',
     },
+    notification: {
+      title: 'Any questions?',
+      message: "Hi! I'm Luis's AI. Ask me about his experience or projects. I'm online!",
+    },
   },
   contact: {
     openGmail: 'Open Gmail',
@@ -179,10 +210,11 @@ export default {
     heading2: 'together.',
     subtitle: "I'm open to freelance projects, full-time opportunities, and interesting collaborations.",
     orReachMe: 'or reach me on',
+    subject: 'Contact from portfolio',
   },
   footer: {
     builtWith: 'Built with Vue 3 + TypeScript + TailwindCSS',
     available: 'Available for work',
-    nasaApi: 'Live NASA API',
+    dashboardApi: 'Live Full Stack Architecture',
   },
 }

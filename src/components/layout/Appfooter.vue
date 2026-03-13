@@ -12,11 +12,11 @@
 
       <div class="flex items-center gap-4">
         <a
-          href="#nasa"
+          href="#dashboard"
           class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sky-400/10 border border-sky-400/20 text-sky-400 text-xs font-medium hover:bg-sky-400/20 transition-all duration-200"
         >
           <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-          {{ t('footer.nasaApi') }}
+          {{ t('footer.dashboardApi') }}
         </a>
         <div class="flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />

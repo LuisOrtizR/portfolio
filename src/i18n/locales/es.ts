@@ -3,21 +3,23 @@ export default {
     about: 'Sobre mí',
     skills: 'Habilidades',
     projects: 'Proyectos',
+    experience: 'Experiencia',
     nasa: 'NASA API',
     certifications: 'Certificaciones',
-    askMe: 'Pregúntame',
+    askMe: 'Asistente IA',
     contact: 'Contacto',
-    hireMe: 'Contrátame',
-    dashboard: 'Dashboard',
+    hireMe: 'Descargar CV',
+    dashboard: 'Arquitectura',
+    more: 'Más',
   },
   hero: {
-    badge: 'Disponible para nuevos proyectos',
+    badge: 'Full Stack Developer | BI & Automatización',
     title1: 'Luis Ortiz',
-    title2: 'Full Stack',
-    title3: 'Developer.',
-    subtitle: 'Construyendo sistemas web modernos y escalables con arquitectura limpia y atención al detalle.',
+    title2: 'Sistemas Escalables',
+    title3: 'y Datos.',
+    subtitle: 'Especialista en desarrollo backend con Node.js y automatización de procesos. Enfocado en transformar datos en soluciones operativas reales.',
     viewProjects: 'Ver Proyectos',
-    letsTalk: 'Hablemos →',
+    letsTalk: 'Contactar ahora',
     stats: {
       experience: 'Años de experiencia',
       projects: 'Proyectos entregados',
@@ -105,32 +107,57 @@ export default {
     seeLess: 'Ver menos ↑',
     viewHd: 'Ver en HD',
   },
+  experience: {
+    tag: 'Trayectoria',
+    heading: 'Mi Viaje Profesional',
+    subtitle: 'Una línea de tiempo de mi evolución en el mundo de la tecnología y los negocios.',
+    items: {
+      slb: {
+        title: 'Process Performance Analyst – Intern',
+        company: 'SLB (Schlumberger)',
+        period: 'Dic 2024 – Ago 2025',
+        desc: 'Optimización de procesos operativos mediante automatización con Power Platform y Microfocus OO. Desarrollo de Dashboards de alto impacto en Power BI para la toma de decisiones basada en datos.',
+      },
+      emtelco: {
+        title: 'Especialista en Experiencia al Cliente',
+        company: 'Emtelco',
+        period: 'Mar 2022 – Sep 2022',
+        desc: 'Resolución técnica de requerimientos y optimización de flujos de atención, mejorando los indicadores de satisfacción del usuario final.',
+      },
+      quality: {
+        title: 'Supervisor de Calidad',
+        company: 'Personal Temporal y Asesorías',
+        period: 'Oct 2016 – Mar 2017',
+        desc: 'Supervisión de estándares de calidad y control de procesos operativos.',
+      }
+    }
+  },
   dashboard: {
-    tag: 'Operaciones en Tiempo Real',
-    heading: 'Centro de Comando Full Stack',
-    subtitle: 'Monitoreo en vivo de clima global, mercados financieros y feriados internacionales conectado a mi backend personalizado.',
+    tag: 'Infraestructura & APIs',
+    heading: 'Arquitectura Full Stack en Vivo',
+    subtitle: 'Demostración técnica de integración: Backend en Node.js (TS), gestión de caché, agregación de múltiples APIs y consumo asíncrono desde el frontend.',
     weather: {
-      title: 'Clima Global',
+      title: 'Integración Weather API',
       feelsLike: 'Sensación',
       humidity: 'Humedad',
       wind: 'Viento',
     },
     market: {
-      title: 'Mercado de Valores',
+      title: 'Agregador Financiero',
       gainers: 'Alzas',
       losers: 'Bajas',
       volume: 'Vol.',
     },
     holidays: {
-      title: 'Feriados Mundiales',
+      title: 'Lógica de Feriados Multi-Fuente',
       today: 'Hoy',
       upcoming: 'Próximos',
       noHolidays: 'Sin feriados hoy',
     },
     status: {
-      live: 'En Vivo',
+      live: 'Sincronizado',
       offline: 'Desconectado',
-      loading: 'Sincronizando...',
+      loading: 'Consultando Backend...',
     }
   },
   projects: {
@@ -167,9 +194,13 @@ export default {
     errorMsg: 'Lo siento, algo salió mal. Por favor intenta de nuevo.',
     suggestions: {
       experience: '¿Qué hiciste en SLB?',
-      skills: '¿Qué tecnologías manejas?',
-      projects: 'Cuéntame sobre tus proyectos',
+      skills: '¿Qué tecnologías usas?',
+      projects: 'Háblame de tus proyectos',
       available: '¿Estás disponible para trabajar?',
+    },
+    notification: {
+      title: '¿Tienes alguna duda?',
+      message: '¡Hola! Soy la IA de Luis. Pregúntame sobre su experiencia o proyectos. ¡Estoy en línea!',
     },
   },
   contact: {
@@ -179,10 +210,11 @@ export default {
     heading2: 'juntos.',
     subtitle: 'Estoy abierto a proyectos freelance, oportunidades de tiempo completo y colaboraciones interesantes.',
     orReachMe: 'o encuéntrame en',
+    subject: 'Contacto desde portfolio',
   },
   footer: {
     builtWith: 'Construido con Vue 3 + TypeScript + TailwindCSS',
     available: 'Disponible para trabajar',
-    nasaApi: 'NASA API en Vivo',
+    dashboardApi: 'Arquitectura Full Stack en Vivo',
   },
 }

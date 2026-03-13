@@ -96,6 +96,6 @@ defineOptions({ name: 'ContactSection' })
 const { t } = useI18n()
 
 const gmailUrl = computed(() =>
-  `https://mail.google.com/mail/?view=cm&to=luisangel930115@gmail.com&su=${encodeURIComponent('Contacto desde portfolio')}`
+  `https://mail.google.com/mail/?view=cm&to=luisangel930115@gmail.com&su=${encodeURIComponent(t('contact.subject'))}`
 )
 </script>

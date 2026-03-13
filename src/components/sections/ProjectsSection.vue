@@ -23,14 +23,17 @@
         </a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
-          v-for="project in projects"
+          v-for="(project, index) in projects"
           :key="project.id"
-          class="group relative flex flex-col rounded-2xl border border-white/6 bg-bg overflow-hidden hover:border-sky-400/25 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+          class="group relative flex flex-col rounded-3xl border border-white/5 bg-bg/50 backdrop-blur-sm overflow-hidden hover:border-sky-400/30 transition-all duration-700 hover:-translate-y-3 shadow-2xl"
+          :class="index % 2 === 0 ? 'lg:translate-y-4' : 'lg:-translate-y-4'"
         >
-          <div class="h-px w-full bg-linear-to-r from-sky-500/0 via-sky-400/50 to-sky-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div class="absolute inset-0 bg-linear-to-br from-sky-500/5 via-transparent to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
+          <div class="h-1 w-full bg-linear-to-r from-transparent via-sky-400/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center" />
+        
           <div v-if="project.featured" class="absolute top-4 right-4 z-10">
             <span class="text-[10px] px-2.5 py-1 rounded-full bg-sky-400/10 text-sky-400 border border-sky-400/20 font-semibold tracking-wide">
               {{ t('projects.featured') }}

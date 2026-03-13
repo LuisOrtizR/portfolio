@@ -8,8 +8,8 @@
       leave-from-class="opacity-100 translate-y-0 scale-100"
       leave-to-class="opacity-0 translate-y-10 scale-95"
     >
-      <div v-if="isOpen" class="fixed bottom-24 right-6 z-50 w-[90vw] sm:w-[400px] max-h-[600px] flex flex-col">
-        <div class="rounded-3xl border border-white/10 bg-surface/90 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col border-violet-500/20">
+      <div v-if="isOpen" class="fixed bottom-24 right-6 z-50 w-[90vw] sm:w-100 max-h-150 flex flex-col">
+        <div class="rounded-3xl border border-white/10 bg-surface/90 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col">
 
           <div class="flex items-center justify-between px-5 py-4 border-b border-white/6 bg-white/2">
             <div class="flex items-center gap-3">
@@ -32,7 +32,7 @@
             </button>
           </div>
 
-          <div ref="messagesContainer" class="flex-1 h-[400px] overflow-y-auto px-5 py-6 space-y-4 scrollbar-thin">
+          <div ref="messagesContainer" class="flex-1 h-100 overflow-y-auto px-5 py-6 space-y-4 scrollbar-thin">
             <div
               v-for="(msg, i) in messages"
               :key="i"

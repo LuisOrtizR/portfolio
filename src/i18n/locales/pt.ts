@@ -158,6 +158,27 @@ export default {
       live: 'Sincronizado',
       offline: 'Desconectado',
       loading: 'Consultando Backend...',
+      systemActive: 'Sistema Ativo',
+      syncing: 'Sincronizando Dados...',
+    },
+    analytics: {
+      weatherTitle: 'Distribuição Climática Global',
+      weatherSubtitle: 'Métricas ambientais processadas via REST API',
+      marketTitle: 'Análise de Mercado',
+      holidayTitle: 'Distribuição de Feriados',
+      activeToday: 'Ativos Hoje',
+      forecast: 'Previsão',
+      humidity: 'Umidade Atmosférica',
+      avgTemp: 'Temp. Global Média',
+      marketStatus: 'Status do Mercado',
+      activeHolidays: 'Feriados Ativos',
+      connectedNodes: 'Nós Conectados',
+      regions: {
+        all: 'Todas as Regiões',
+        CO: 'Colômbia',
+        US: 'EUA',
+        global: 'Global (Outros)',
+      }
     }
   },
   projects: {
